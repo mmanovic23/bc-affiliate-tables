@@ -47,6 +47,10 @@
     float: right;
 }
 
+.bg-faded{
+    background-color: #f3f3f3;
+}
+
 .bet-table .btn-collapse .icon {
     display: block;
     -webkit-transition: -webkit-transform .2s;
@@ -1291,8 +1295,7 @@
     transition: fill .2s
 }
 
-.rating .rate.rated svg,
-.rating .rate:hover svg {
+.rating .rate.rated svg {
     fill: #ffe375
 }
 
@@ -1532,7 +1535,7 @@
 }
 
 .list-icons .icon {
-    font-size: 8px;
+    font-size: 10px;
     display: inline-block;
     vertical-align: middle;
     margin-right: 8px
@@ -1691,12 +1694,44 @@
 
 .bet-table {
     background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .4);
-    margin: 2em 0 2em 0;
+    /*box-shadow: 0 0 10px rgba(0, 0, 0, .4);*/
+    margin: 0em 0 2em 0;
+    border: 1px solid #e5e5e5;
 }
 
 @media (max-width:767px) {
     .bet-table{
         background-color: #f9f9f9
+    }
+}
+
+.bet-table-head {
+    margin-top: 2em;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    background-color: rgb(229, 229, 229);
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 11px;
+    color: #696969;
+    text-transform: uppercase;
+    padding: .875rem 0
+}
+
+.bet-table-head > div {
+    width: 25%;
+    text-align: center
+}
+
+@media (max-width: 1199px) {
+    .bet-table-head {
+        display:none
     }
 }

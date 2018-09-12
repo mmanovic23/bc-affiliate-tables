@@ -576,14 +576,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "page"
-                }
-            ],
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "post"
+                    "value": "affiliate_table"
                 }
             ]
         ],
@@ -592,7 +585,23 @@
         "style": "default",
         "label_placement": "top",
         "instruction_placement": "label",
-        "hide_on_screen": "",
+        "hide_on_screen": [
+            "permalink",
+            "the_content",
+            "excerpt",
+            "custom_fields",
+            "discussion",
+            "comments",
+            "revisions",
+            "slug",
+            "author",
+            "format",
+            "page_attributes",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
         "active": 1,
         "description": ""
     }
