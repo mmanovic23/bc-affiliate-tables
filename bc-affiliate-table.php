@@ -117,7 +117,7 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	// Save ACF Settings to JSON file.
 	function at_acf_json_save_point( $path ) {
-	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925v" )
+	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925r" )
 	        $path = AT_PATH . 'acf-json-group-fields';
 	    return $path;
 	}
