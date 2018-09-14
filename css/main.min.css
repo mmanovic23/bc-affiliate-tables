@@ -1633,7 +1633,7 @@
 }
 
 .descr-text p {
-    font-size: 13px !important;
+    font-size: 13px;
     line-height: 1.75
 }
 
