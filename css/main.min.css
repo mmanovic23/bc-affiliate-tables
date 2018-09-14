@@ -1110,7 +1110,7 @@
     .item-expand .title-link {
         font-size: .75rem
     }
-    .item-expand .descr-text {
+    .item-expand .descr-text p {
         font-size: .75rem;
         margin-bottom: 1rem
     }
@@ -1632,19 +1632,19 @@
     }
 }
 
-.descr-text {
+.descr-text p {
     font-size: 13px !important;
     line-height: 1.75
 }
 
 @media (max-width:1199px) {
-    .descr-text {
+    .descr-text p {
         line-height: 1.6
     }
 }
 
 @media (max-width:991px) {
-    .descr-text {
+    .descr-text p {
         font-size: 20px;
         line-height: 1.9;
         margin-bottom: 2rem
@@ -1652,13 +1652,13 @@
 }
 
 @media (max-width:767px) {
-    .descr-text {
+    .descr-text p {
         line-height: 1.8
     }
 }
 
 @media (max-width:575px) {
-    .descr-text {
+    .descr-text p {
         font-size: 16px;
         line-height: 1.5
     }
