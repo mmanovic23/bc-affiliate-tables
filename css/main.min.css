@@ -1433,6 +1433,10 @@
     color: #1dbce3
 }
 
+.tick-item .icon path{
+    fill: #1dbce3;
+}
+
 .col-btn {
     text-align: center
 }
