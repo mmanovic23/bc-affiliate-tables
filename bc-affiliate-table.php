@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -55,7 +55,7 @@ function at_plugin_scripts_stylesheets() {
 		wp_enqueue_style('tooltipster-follower-css', AT_URL . 'css/tooltipster-follower.min.css' );
 
 		wp_enqueue_script( 'at-custom-js', AT_URL . 'js/main.min.js', array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'bootstrap-collapse-js', AT_URL . 'js/bootstrap.collapse.min.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'bootstrap-js', AT_URL . 'js/bootstrap.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'rateyo-js', AT_URL . 'js/jquery.rateyo.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-js', AT_URL . 'js/tooltipster.bundle.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-follower-js', AT_URL . 'js/tooltipster-follower.min.js', array( 'jquery', 'tooltipster-js' ), '1.0', true );
