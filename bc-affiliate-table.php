@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -54,6 +54,7 @@ function at_plugin_scripts_stylesheets() {
 		wp_enqueue_style('tooltipster-follower-css', AT_URL . 'css/tooltipster-follower.min.css' );
 
 		wp_enqueue_script( 'at-custom-js', AT_URL . 'js/main.min.js', array( 'jquery' ), '1.0', true );
+		wp_enqueue_script( 'bootstrap-collapse-js', AT_URL . 'js/bootstrap.collapse.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'rateyo-js', AT_URL . 'js/jquery.rateyo.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-js', AT_URL . 'js/tooltipster.bundle.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-follower-js', AT_URL . 'js/tooltipster-follower.min.js', array( 'jquery', 'tooltipster-js' ), '1.0', true );
@@ -109,7 +110,7 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 	function at_acf_json_load_point( $paths ) {
 
 	    // append path
-	    $paths[] = AT_PATH . 'acf-json-group-fields';
+	    $paths[] = AT_PATH . 'acf-json';
 	    return $paths;
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
@@ -117,8 +118,8 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	// Save ACF Settings to JSON file.
 	function at_acf_json_save_point( $path ) {
-	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925r" )
-	        $path = AT_PATH . 'acf-json-group-fields';
+	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
+	        $path = AT_PATH . 'acf-json';
 	    return $path;
 	}
 	add_filter('acf/settings/save_json', 'at_acf_json_save_point');
