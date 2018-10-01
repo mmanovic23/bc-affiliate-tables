@@ -3,18 +3,18 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 	function at_output_table($parameter){
 
-		$table_header_settings = get_field('table_header_settings');
-
-		if ($table_header_settings): 
-
+		if ( have_rows('table_header_settings', $parameter) ): 
+			while( have_rows('table_header_settings', $parameter) ): the_row(); 
 		?>
+
 		<div class="bet-table-head">
-			<div><?php echo $table_header_settings['column_1_header_title']; ?></div>
-			<div><?php echo $table_header_settings['column_2_header_title']; ?></div>
-			<div><?php echo $table_header_settings['column_3_header_title']; ?></div>
-			<div><?php echo $table_header_settings['column_4_header_title']; ?></div>
+			<div><?php the_sub_field('column_1_header_title'); ?></div>
+			<div><?php the_sub_field('column_2_header_title'); ?></div>
+			<div><?php the_sub_field('column_3_header_title'); ?></div>
+			<div><?php the_sub_field('column_4_header_title'); ?></div>
 		</div>
 
+			<?php endwhile; ?>
 		<?php endif;
 
 		if( have_rows('comparison_affiliate_table', $parameter) ): ?>
