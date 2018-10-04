@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.2.0
+ * Version: 1.2.1
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */

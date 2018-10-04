@@ -1,12 +1,23 @@
-.list-icon,
-.list-icon-img,
-.list-icons,
-.list-img,
-.list-tick,
-.list-tick-sm,
-.list-unstyled {
+.bet-table .list-icon,
+.bet-table .list-icon-img,
+.bet-table .list-icons,
+.bet-table .list-img,
+.bet-table .list-tick,
+.bet-table .list-tick-sm,
+.bet-table .list-unstyled {
     padding-left: 0;
     list-style: none
+}
+
+.bet-table .list-icon:before,
+.bet-table .list-icon-img:before,
+.bet-table .list-icons:before,
+.bet-table .list-img:before,
+.bet-table .list-tick:before,
+.bet-table .list-tick-sm:before,
+.bet-table .list-unstyled:before{
+    visibility: hidden;
+    display: none;
 }
 
 .btn:not(:disabled):not(.disabled) {
