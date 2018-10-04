@@ -312,8 +312,8 @@ if ( !function_exists( 'at_output_table' ) ) {
 				</div>
 
 				<div class="btn-collapse-holder">
-					<a class="btn-collapse" data-toggle="collapse" href="#bet-expanded-<?php echo $i ?>" onclick="" aria-expanded="false" aria-controls="bet-expanded-<?php echo $i ?>">
-						<span class="expanded-false"><?php echo strtoupper(get_sub_field('show_text')); ?> </span><span class="expanded-true"><?php echo strtoupper(get_sub_field('hide_text')); ?> </span><?php echo strtoupper(get_sub_field('brand_operator_name')); ?> <?php echo strtoupper(get_sub_field('review_text')); ?>&nbsp;&gt;</a>
+					<a class="btn-collapse" data-toggle="collapse" data-target="#bet-expanded-<?php echo $i ?>" onclick="" aria-expanded="false" aria-controls="bet-expanded-<?php echo $i ?>">
+						<span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-false"><?php echo strtoupper(get_sub_field('show_text')); ?> </span><span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-true"><?php echo strtoupper(get_sub_field('hide_text')); ?> </span><?php echo strtoupper(get_sub_field('brand_operator_name')); ?> <?php echo strtoupper(get_sub_field('review_text')); ?>&nbsp;&gt;</a>
 				</div>
 
 			</div><!-- /item-holder -->

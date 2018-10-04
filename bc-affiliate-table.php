@@ -50,12 +50,11 @@ function at_plugin_scripts_stylesheets() {
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'affiliate-table') || 'affiliate_table' == get_post_type() ) {
 
         wp_enqueue_style('bc-affiliate-tables-css', AT_URL . 'css/main.min.css' );
-        wp_enqueue_style('bootstrap-css', AT_URL . 'css/bootstrap.min.css' );
+        // wp_enqueue_style('bootstrap-css', AT_URL . 'css/bootstrap.min.css' );
 		wp_enqueue_style('tooltipster-bundle-css', AT_URL . 'css/tooltipster.bundle.min.css' );
 		wp_enqueue_style('tooltipster-follower-css', AT_URL . 'css/tooltipster-follower.min.css' );
 
 		wp_enqueue_script( 'at-custom-js', AT_URL . 'js/main.min.js', array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'bootstrap-js', AT_URL . 'js/bootstrap.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'rateyo-js', AT_URL . 'js/jquery.rateyo.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-js', AT_URL . 'js/tooltipster.bundle.min.js', array( 'jquery' ), '1.0', true );
 		wp_enqueue_script( 'tooltipster-follower-js', AT_URL . 'js/tooltipster-follower.min.js', array( 'jquery', 'tooltipster-js' ), '1.0', true );
