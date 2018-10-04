@@ -127,7 +127,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 										<span aria-hidden="true">×</span>
 		                            </button>
 		                            <h6 class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></h6>
-		                            <p><?php the_sub_field('tc_popup_content'); ?></p>
+		                            <p class="content"><?php the_sub_field('tc_popup_content'); ?></p>
 		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" target="_blank" role="button" class="btn btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
 		                                	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
