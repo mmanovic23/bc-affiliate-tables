@@ -502,7 +502,8 @@
     font-size: 11px;
     color: #fff;
     text-transform: uppercase;
-    padding: .875rem 0
+    padding: .875rem 0;
+    min-width: 850px;
 }
 
 .bet-table-head>div {
@@ -1130,9 +1131,9 @@
     display: block
 }
 
-.tick-item:last-of-type {
+/*.tick-item:last-of-type {
     margin-bottom: 0
-}
+}*/
 
 .tick-item .icon {
     position: absolute;
@@ -1253,7 +1254,8 @@
 }
 
 .list-icons li {
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    font-size: 15px;
 }
 
 .list-icons li.disabled {
@@ -1425,6 +1427,7 @@
     /*box-shadow: 0 0 10px rgba(0, 0, 0, .4);*/
     margin: 0em 0 2em 0;
     border: 1px solid #e5e5e5;
+    min-width: 850px;
 }
 
 @media (max-width:767px) {
