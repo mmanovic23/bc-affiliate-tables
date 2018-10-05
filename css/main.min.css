@@ -9,13 +9,13 @@
     list-style: none
 }
 
-.bet-table .list-icon:before,
-.bet-table .list-icon-img:before,
-.bet-table .list-icons:before,
-.bet-table .list-img:before,
-.bet-table .list-tick:before,
-.bet-table .list-tick-sm:before,
-.bet-table .list-unstyled:before{
+.bet-table .list-icon li:before,
+.bet-table .list-icon-img li:before,
+.bet-table .list-icons li:before,
+.bet-table .list-img li:before,
+.bet-table .list-tick li:before,
+.bet-table .list-tick-sm li:before,
+.bet-table .list-unstyled li:before{
     visibility: hidden;
     display: none;
 }
