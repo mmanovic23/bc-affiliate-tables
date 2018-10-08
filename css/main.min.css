@@ -503,7 +503,6 @@
     color: #fff;
     text-transform: uppercase;
     padding: .875rem 0;
-    min-width: 850px;
 }
 
 .bet-table-head>div {
@@ -1427,7 +1426,6 @@
     /*box-shadow: 0 0 10px rgba(0, 0, 0, .4);*/
     margin: 0em 0 2em 0;
     border: 1px solid #e5e5e5;
-    min-width: 850px;
 }
 
 @media (max-width:767px) {
