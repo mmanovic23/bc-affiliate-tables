@@ -45,7 +45,7 @@
     border: 1px solid transparent;
     text-transform: uppercase;
     padding: 1rem 1rem;
-    font-size: 14px;
+    font-size: 12px;
     border-radius: .2rem;
     -webkit-transition: color .2s ease-in-out, border-color .2s ease-in-out, background-color .2s ease-in-out;
     transition: color .2s ease-in-out, border-color .2s ease-in-out, background-color .2s ease-in-out;
