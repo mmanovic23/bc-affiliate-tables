@@ -1,3 +1,0 @@
-<?php
-// Hanning is golden.
-?>

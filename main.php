@@ -74,7 +74,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<?php if( $image ) {
 										echo wp_get_attachment_image( $image, 'full', "", ["class" => "logo"]  );
 									} else{ ?>
-										<img class="logo" src="<?php echo AT_URL ?>images/placeholder-image.png"/>
+										<img class="logo" src="<?php echo AT_URL ?>build/images/placeholder-image.png"/>
 									<?php }
 									?>
 
@@ -112,10 +112,10 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 						<!-- tooltip -->
 						<div class="bonus-extra">
-							T&amp;Cs Apply
+                            <?php the_sub_field('tc_apply'); ?>
 							<span class="icon-holder tooltipster-popover tooltipstered" data-tooltip-content="#tooltipster-popover_content-<?php echo $i ?>">
 								<svg class="icon icon-question" width="1em" height="1em">
-									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#question" width="100%" height="100%"></use>
+									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#question" width="100%" height="100%"></use>
 								</svg>
 							</span>
 
@@ -130,7 +130,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 		                            <p class="content"><?php the_sub_field('tc_popup_content'); ?></p>
 		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" target="_blank" role="button" class="btn btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
-		                                	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
+		                                	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
 		                				</svg>
 		            				</a>
 		                        </span>
@@ -161,7 +161,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 							<br class="hidden-sm-up">
 							<span class="btn-extra-text hidden-sm-up"><?php the_sub_field('go_to_text'); ?> <?php the_sub_field('brand_operator_name'); ?></span>
 							<svg class="icon icon-caret-right" width="1em" height="1em">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
 							</svg>
 						</a>
 
@@ -189,7 +189,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 								<li>																		
 									<span class="tooltipster-text tooltipstered">
 		                                <svg class="icon icon-flag-uk" width="1em" height="1em">
-		                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#flag-uk" width="100%" height="100%"></use>
+		                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#flag-uk" width="100%" height="100%"></use>
 		                                </svg>
 		                            </span>
 								</li>
@@ -259,19 +259,19 @@ if ( !function_exists( 'at_output_table' ) ) {
 						<ul class="list-icons hidden-lg-up">
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#tick" width="100%" height="100%"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('first_pointer'); ?>
 							</li>
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#tick" width="100%" height="100%"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('second_pointer'); ?>
 							</li>
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>images/svg-symbols.svg#tick" width="100%" height="100%"></use>
+								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('third_pointer'); ?>
 							</li>
@@ -295,10 +295,10 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<?php
 								} else{ ?>
 
-										<img class="tooltipster-screen tooltipstered" data-tooltip-content="#tooltipster-screen_content-<?php echo $i ?>" src="<?php echo AT_URL ?>images/placeholder-image.png" alt="">
+										<img class="tooltipster-screen tooltipstered" data-tooltip-content="#tooltipster-screen_content-<?php echo $i ?>" src="<?php echo AT_URL ?>build/images/placeholder-image.png" alt="">
 										<div class="tooltipster-screen_templates">
 				                            <span id="tooltipster-screen_content-<?php echo $i ?>">
-				                            	<img class="tooltipster-screen-hover" src="<?php echo AT_URL ?>images/placeholder-image.png"/>
+				                            	<img class="tooltipster-screen-hover" src="<?php echo AT_URL ?>build/images/placeholder-image.png"/>
 											</span>
 										</div>
 									

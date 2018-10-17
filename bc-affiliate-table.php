@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -49,15 +49,9 @@ function at_plugin_scripts_stylesheets() {
     global $post;
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'affiliate-table') || 'affiliate_table' == get_post_type() ) {
 
-        wp_enqueue_style('bc-affiliate-tables-css', AT_URL . 'css/main.min.css' );
-        // wp_enqueue_style('bootstrap-css', AT_URL . 'css/bootstrap.min.css' );
-		wp_enqueue_style('tooltipster-bundle-css', AT_URL . 'css/tooltipster.bundle.min.css' );
-		wp_enqueue_style('tooltipster-follower-css', AT_URL . 'css/tooltipster-follower.min.css' );
+        wp_enqueue_style('at', AT_URL . 'build/css/main.min.css' );
 
-		wp_enqueue_script( 'at-custom-js', AT_URL . 'js/main.min.js', array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'rateyo-js', AT_URL . 'js/jquery.rateyo.min.js', array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'tooltipster-js', AT_URL . 'js/tooltipster.bundle.min.js', array( 'jquery' ), '1.0', true );
-		wp_enqueue_script( 'tooltipster-follower-js', AT_URL . 'js/tooltipster-follower.min.js', array( 'jquery', 'tooltipster-js' ), '1.0', true );
+		wp_enqueue_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
     }
 }
 add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
@@ -72,7 +66,6 @@ function at_check_if_acf_exists() {
     if( !class_exists('acf') ) : ?>
         <div class="notice notice-error is-dismissible">
             <p>You need to install &amp; activate ACF PRO to make BC Affiliate Tables plugin work!</p>
-            <p>Additionally, make sure this site uses Bootstrap CSS.</p>
             <p>In Spanish: Installo ACF PRO Plugino, if no-o, then'o no work-o! No comprende? Contacto Hanningo</p>
         </div>
     <?php endif;

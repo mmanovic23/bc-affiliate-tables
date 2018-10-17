@@ -620,6 +620,25 @@
                         "maxlength": ""
                     },
                     {
+                        "key": "field_5bc721b16cf2f",
+                        "label": "\"T&C Apply\" Text",
+                        "name": "tc_apply",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "T&C Apply",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
                         "key": "field_5b3dc5884e746",
                         "label": "\"Show\" Text",
                         "name": "show_text",
