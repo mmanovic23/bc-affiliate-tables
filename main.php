@@ -8,10 +8,10 @@ if ( !function_exists( 'at_output_table' ) ) {
 		?>
 
 		<div class="bet-table-head">
-			<div><?php the_sub_field('column_1_header_title'); ?></div>
-			<div><?php the_sub_field('column_2_header_title'); ?></div>
-			<div><?php the_sub_field('column_3_header_title'); ?></div>
-			<div><?php the_sub_field('column_4_header_title'); ?></div>
+			<div class="header-one"><?php the_sub_field('column_1_header_title'); ?></div>
+			<div class="header-two"><?php the_sub_field('column_2_header_title'); ?></div>
+			<div class="header-three"><?php the_sub_field('column_3_header_title'); ?></div>
+			<div class="header-four"><?php the_sub_field('column_4_header_title'); ?></div>
 		</div>
 
 			<?php endwhile; ?>
