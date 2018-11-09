@@ -76,8 +76,9 @@ add_action('admin_init', 'at_check_if_acf_exists');
 
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
+    DOESN'T WORK AT THE MOMENT, BUG FROM ACF
 \*----------------------------------------------------------------*/
-function at_is_field_group_exists($value, $type='post_title') {
+/*function at_is_field_group_exists($value, $type='post_title') {
 
 	$exists = false;
 	if ($field_groups = get_posts(array('post_type'=>'acf'))) {
@@ -88,14 +89,15 @@ function at_is_field_group_exists($value, $type='post_title') {
 	    }
 	}
 	return $exists;
-}
+}*/
 
 
 
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
+    DOESN'T WORK AT THE MOMENT, BUG FROM ACF
 \*---------------------------------------------------------------------------*/
-$fieldGroup = 'Affiliate Table';
+/*$fieldGroup = 'Affiliate Table';
 
 if ( at_is_field_group_exists($fieldGroup) == false ) {
 
@@ -104,20 +106,21 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	    // append path
 	    $paths[] = AT_PATH . 'acf-json';
+	    var_dump($paths);
 	    return $paths;
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
 
 
 	// Save ACF Settings to JSON file.
-	function at_acf_json_save_point( $path ) {
+    function at_acf_json_save_point( $path ) {
 	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
 	        $path = AT_PATH . 'acf-json';
 	    return $path;
 	}
 	add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
-}
+}*/
 
 
 

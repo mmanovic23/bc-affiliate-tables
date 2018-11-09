@@ -230,4 +230,50 @@ function custom_at_column( $column, $post_id ) {
 add_action( 'manage_affiliate_table_posts_custom_column' , 'custom_at_column', 10, 2 );
 
 
+
+/*---------------------*\
+    Admin CSS Styles.
+\*---------------------*/
+function at_admin_custom_css() {
+?>
+    <style>
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(odd) > td.acf-row-handle.order,
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(odd) > td.acf-row-handle.remove,
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(odd) > td.acf-fields > .acf-tab-wrap{
+            background-color: #d8d8d8;
+            color: #000000;
+        }
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(even) > td.acf-row-handle.order,
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(even) > td.acf-row-handle.remove,
+        body.post-type-affiliate_table #at_table_rows tr:nth-child(even) > td.acf-fields > .acf-tab-wrap{
+            background-color: #a7a7a7;
+            color: #000000;
+        }
+        body.post-type-affiliate_table #at_table_rows .acf-repeater.-row > table > tbody > tr > td{
+            border-top-color: #000000;
+        }
+        body.post-type-affiliate_table #at_table_rows .acf-table{
+            border: #000000 solid 1px;
+        }
+    </style>
+<?php
+}
+add_action('admin_head', 'at_admin_custom_css');
+
+
+
+/*-------------------------*\
+    Post Sidebar Sticky.
+\*-------------------------*/
+function sticky_admin_sidebar_script ( $hook ) {
+    // Only load on new or edit post screen or acf options pages
+    if ( !in_array( $hook, array( 'post.php', 'post-new.php' ) ) && substr($hook, 0, 24) != 'options_page_acf-options' && substr($hook, 0, 25) != 'toplevel_page_acf-options' ) {
+        return;
+    }
+    // Load the script
+    wp_enqueue_script( 'sticky_admin_sidebars', AT_URL . 'admin/sticky-admin-sidebar.js', array( 'jquery' ) );
+}
+add_action( 'admin_enqueue_scripts', 'sticky_admin_sidebar_script' );
+
+
 ?>

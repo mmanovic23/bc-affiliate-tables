@@ -5,8 +5,8 @@
         "fields": [
             {
                 "key": "field_5b9a56fe8d419",
-                "label": "Table Header Settings",
-                "name": "table_header_settings",
+                "label": "Table Settings",
+                "name": "table_settings",
                 "type": "group",
                 "instructions": "",
                 "required": 0,
@@ -16,8 +16,24 @@
                     "class": "",
                     "id": ""
                 },
-                "layout": "block",
+                "layout": "row",
                 "sub_fields": [
+                    {
+                        "key": "field_5bdb181b1ed7e",
+                        "label": "Table Header",
+                        "name": "",
+                        "type": "tab",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "placement": "left",
+                        "endpoint": 0
+                    },
                     {
                         "key": "field_5b9a595bb960e",
                         "label": "Column 1 Header Title",
@@ -93,6 +109,231 @@
                         "prepend": "",
                         "append": "",
                         "maxlength": ""
+                    },
+                    {
+                        "key": "field_5bdc433a07009",
+                        "label": "Table Header Background Color",
+                        "name": "table_header_background_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#e5e5e5"
+                    },
+                    {
+                        "key": "field_5bdc44b3583aa",
+                        "label": "Table Header Text Color",
+                        "name": "table_header_text_color",
+                        "type": "color_picker",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "#696969"
+                    },
+                    {
+                        "key": "field_5bdb184a1ed7f",
+                        "label": "Translations",
+                        "name": "",
+                        "type": "tab",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "placement": "left",
+                        "endpoint": 0
+                    },
+                    {
+                        "key": "field_5b3c91fc47c80",
+                        "label": "\"Sign Up\" Text",
+                        "name": "sign_up_text",
+                        "type": "text",
+                        "instructions": "Character Limit: 15<\/br>\r\nShows on button, concatenated with CTA text on mobile devices. Like: \"Sign Up + Bet Now\" as button text.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Sign Up",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 15
+                    },
+                    {
+                        "key": "field_5b3c8259913c4",
+                        "label": "\"Our Score\" Text",
+                        "name": "our_score_text",
+                        "type": "text",
+                        "instructions": "Character Limit: 20",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5b191452f53fb",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Our Score",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 20
+                    },
+                    {
+                        "key": "field_5b3c9c872386a",
+                        "label": "\"Go to\" Text",
+                        "name": "go_to_text",
+                        "type": "text",
+                        "instructions": "Character Limit: 10",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Go to",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 10
+                    },
+                    {
+                        "key": "field_5b3ccb300b9ab",
+                        "label": "\"Create your account\" Text",
+                        "name": "create_your_account_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Create your account",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5b3ce0d70b9ac",
+                        "label": "\"Read the full review\" Text",
+                        "name": "read_the_full_review_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Read the full review",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5b3dc14544d63",
+                        "label": "\"Review\" Text",
+                        "name": "review_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Review",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5bc721b16cf2f",
+                        "label": "\"T&C Apply\" Text",
+                        "name": "tc_apply",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "T&C Apply",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5b3dc5884e746",
+                        "label": "\"Show\" Text",
+                        "name": "show_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Show",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
+                    },
+                    {
+                        "key": "field_5b3dc59f4e747",
+                        "label": "\"Hide\" Text",
+                        "name": "hide_text",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Hide",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": ""
                     }
                 ]
             },
@@ -107,7 +348,7 @@
                 "wrapper": {
                     "width": "",
                     "class": "",
-                    "id": ""
+                    "id": "at_table_rows"
                 },
                 "collapsed": "field_5b3c9717912ad",
                 "min": 0,
@@ -357,7 +598,7 @@
                     },
                     {
                         "key": "field_5b18f497df00f",
-                        "label": "Settings \/ Translations",
+                        "label": "Row Settings",
                         "name": "",
                         "type": "tab",
                         "instructions": "",
@@ -446,25 +687,6 @@
                         "default_value": "#19b51e"
                     },
                     {
-                        "key": "field_5b3c91fc47c80",
-                        "label": "\"Sign Up\" Text",
-                        "name": "sign_up_text",
-                        "type": "text",
-                        "instructions": "Character Limit: 15<\/br>\r\nShows on button, concatenated with CTA text on mobile devices. Like: \"Sign Up + Bet Now\" as button text.",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Sign Up",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": 15
-                    },
-                    {
                         "key": "field_5b191452f53fb",
                         "label": "Include \"Our Score\" ?",
                         "name": "include_our_score",
@@ -517,168 +739,8 @@
                         "append": ""
                     },
                     {
-                        "key": "field_5b3c8259913c4",
-                        "label": "\"Our Score\" Text",
-                        "name": "our_score_text",
-                        "type": "text",
-                        "instructions": "Character Limit: 20",
-                        "required": 0,
-                        "conditional_logic": [
-                            [
-                                {
-                                    "field": "field_5b191452f53fb",
-                                    "operator": "==",
-                                    "value": "yes"
-                                }
-                            ]
-                        ],
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Our Score",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": 20
-                    },
-                    {
-                        "key": "field_5b3c9c872386a",
-                        "label": "\"Go to\" Text",
-                        "name": "go_to_text",
-                        "type": "text",
-                        "instructions": "Character Limit: 10",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Go to",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": 10
-                    },
-                    {
-                        "key": "field_5b3ccb300b9ab",
-                        "label": "\"Create your account\" Text",
-                        "name": "create_your_account_text",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Create your account",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5b3ce0d70b9ac",
-                        "label": "\"Read the full review\" Text",
-                        "name": "read_the_full_review_text",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Read the full review",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5b3dc14544d63",
-                        "label": "\"Review\" Text",
-                        "name": "review_text",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Review",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5bc721b16cf2f",
-                        "label": "\"T&C Apply\" Text",
-                        "name": "tc_apply",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "T&C Apply",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5b3dc5884e746",
-                        "label": "\"Show\" Text",
-                        "name": "show_text",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Show",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
-                        "key": "field_5b3dc59f4e747",
-                        "label": "\"Hide\" Text",
-                        "name": "hide_text",
-                        "type": "text",
-                        "instructions": "",
-                        "required": 0,
-                        "conditional_logic": 0,
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "default_value": "Hide",
-                        "placeholder": "",
-                        "prepend": "",
-                        "append": "",
-                        "maxlength": ""
-                    },
-                    {
                         "key": "field_5b18f4b6df010",
-                        "label": "Dropdown Table Row",
+                        "label": "Row Dropdown Content",
                         "name": "",
                         "type": "tab",
                         "instructions": "",
@@ -693,15 +755,47 @@
                         "endpoint": 0
                     },
                     {
+                        "key": "field_5bdc509365dde",
+                        "label": "Include a Mini Review Dropdown?",
+                        "name": "include_a_mini_review_dropdown",
+                        "type": "radio",
+                        "instructions": "You'll be able to provide a Mini Review for the bookmaker in the table or select an existing review for this bookmaker, then the title and the content will be extracted and used as an Mini Review.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "yes": "Yes",
+                            "no": "No"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "yes",
+                        "layout": "horizontal",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
                         "key": "field_5b1908de6849d",
                         "label": "First Pointer",
                         "name": "first_pointer",
                         "type": "text",
                         "instructions": "Character limit: 35",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -718,9 +812,17 @@
                         "type": "text",
                         "instructions": "Character limit: 35",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -737,9 +839,17 @@
                         "type": "text",
                         "instructions": "Character limit: 35",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -756,7 +866,15 @@
                         "type": "radio",
                         "instructions": "Do you want to pull title and content from an existing review?",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -768,10 +886,10 @@
                         },
                         "allow_null": 0,
                         "other_choice": 0,
-                        "save_other_choice": 0,
                         "default_value": "no",
                         "layout": "horizontal",
-                        "return_format": "value"
+                        "return_format": "value",
+                        "save_other_choice": 0
                     },
                     {
                         "key": "field_5b18f521573a6",
@@ -786,6 +904,11 @@
                                     "field": "field_5b18fa0952178",
                                     "operator": "==",
                                     "value": "yes"
+                                },
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
                                 }
                             ]
                         ],
@@ -798,7 +921,7 @@
                             "post",
                             "page"
                         ],
-                        "taxonomy": [],
+                        "taxonomy": "",
                         "allow_null": 0,
                         "multiple": 0,
                         "return_format": "object",
@@ -817,6 +940,11 @@
                                     "field": "field_5b18fa0952178",
                                     "operator": "==",
                                     "value": "no"
+                                },
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
                                 }
                             ]
                         ],
@@ -844,6 +972,11 @@
                                     "field": "field_5b18fa0952178",
                                     "operator": "==",
                                     "value": "no"
+                                },
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
                                 }
                             ]
                         ],
@@ -865,7 +998,15 @@
                         "type": "image",
                         "instructions": "",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5bdc509365dde",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -941,7 +1082,7 @@
                         "label": "T&C Link",
                         "name": "tc_link",
                         "type": "text",
-                        "instructions": "Not to be used with an affiliate link.",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -956,6 +1097,30 @@
                         "maxlength": ""
                     },
                     {
+                        "key": "field_5bdb19d8607f8",
+                        "label": "Include Nofollow to T&C link?",
+                        "name": "tc_link_include_nofollow",
+                        "type": "radio",
+                        "instructions": "In case you are using an Affiliate link instead of a T&C link.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "yes": "Yes",
+                            "no": "No"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "no",
+                        "layout": "horizontal",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
                         "key": "field_5b3c7deee588e",
                         "label": "T&C Button Text",
                         "name": "tc_button_text",
@@ -968,7 +1133,7 @@
                             "class": "",
                             "id": ""
                         },
-                        "default_value": "",
+                        "default_value": "Terms & Conditions",
                         "placeholder": "",
                         "prepend": "",
                         "append": "",

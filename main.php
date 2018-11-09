@@ -1,48 +1,82 @@
 <?php
 if ( !function_exists( 'at_output_table' ) ) {
 
-	function at_output_table($parameter){
+	function at_output_table($id){
 
-		if ( have_rows('table_header_settings', $parameter) ): 
-			while( have_rows('table_header_settings', $parameter) ): the_row(); 
+
+		if ( have_rows('table_settings', $id) ):
+			while( have_rows('table_settings', $id) ): the_row();
+
+		    $sign_up_text = get_sub_field('sign_up_text');
+		    $our_score_text = get_sub_field('our_score_text');
+            $go_to_text = get_sub_field('go_to_text');
+            $create_your_account_text = get_sub_field('create_your_account_text');
+            $read_the_full_review_text = get_sub_field('read_the_full_review_text');
+            $review_text = get_sub_field('review_text');
+            $tc_apply = get_sub_field('tc_apply');
+            $show_text = get_sub_field('show_text');
+            $hide_text = get_sub_field('hide_text');
+
 		?>
 
-		<div class="bet-table-head">
+        <?php
+
+        // $fields = get_field('table_settings', $id);
+
+        //DEBUG FIELDS
+
+        // DEBUG 1
+        // var_dump($fields);
+
+        //DEBUG 2
+        // foreach( $fields as $field_name => $field )
+        // {
+        // 	echo '<div>';
+        // 		echo '<h3>' . $field['label'] . '</h3>';
+        // 		echo $field['value'];
+        // 	echo '</div>';
+        // }
+
+        ?>
+
+		<div class="bet-table-head" style="background-color: <?php the_sub_field('table_header_background_color') ?>; color: <?php the_sub_field('table_header_text_color') ?>">
 			<div class="header-one"><?php the_sub_field('column_1_header_title'); ?></div>
 			<div class="header-two"><?php the_sub_field('column_2_header_title'); ?></div>
 			<div class="header-three"><?php the_sub_field('column_3_header_title'); ?></div>
 			<div class="header-four"><?php the_sub_field('column_4_header_title'); ?></div>
 		</div>
 
+
+
 			<?php endwhile; ?>
 		<?php endif;
 
-		if( have_rows('comparison_affiliate_table', $parameter) ): ?>
+		if( have_rows('comparison_affiliate_table', $id) ): ?>
 
 		<?php $i = 1; ?>
 
 	    <!-- bet-table -->
 		<div class="bet-table">
 
-	    <?php while( have_rows('comparison_affiliate_table', $parameter) ): the_row(); ?>
+	    <?php while( have_rows('comparison_affiliate_table', $id) ): the_row(); ?>
 
 	    	<?php 
-	    	// $fields = get_field('comparison_affiliate_table', $parameter);
+//	    	$fields = get_field('comparison_affiliate_table', $id);
 	    	
 	    	//DEBUG FIELDS
 
 	    	// DEBUG 1
-	    	//var_dump($fields);
+//	    	var_dump($fields);
 			
 			//DEBUG 2
-			// foreach( $fields as $field_name => $field )
-			// {
-			// 	echo '<div>';
-			// 		echo '<h3>' . $field['label'] . '</h3>';
-			// 		echo $field['value'];
-			// 	echo '</div>';
-			// }
-		
+/*			 foreach( $fields as $field_name => $field )
+			 {
+			 	echo '<div>';
+			 		echo '<h3>' . $field['label'] . '</h3>';
+			 		echo $field['value'];
+			 	echo '</div>';
+			 }*/
+
 			?>
 
 			<div class="item-holder">
@@ -106,13 +140,13 @@ if ( !function_exists( 'at_output_table' ) ) {
 						<?php if( get_sub_field('include_our_score') == 'yes' ): ?>
 						
 							<!-- "Our Score" shows on mobile devices -->
-							<div class="score-text"><?php the_sub_field('our_score_text'); ?>: <span class="score-value"><?php the_sub_field('our_score'); ?></span></div>
+							<div class="score-text"><?php echo $our_score_text; ?>: <span class="score-value"><?php the_sub_field('our_score'); ?></span></div>
 
 						<?php endif; ?>
 
 						<!-- tooltip -->
 						<div class="bonus-extra">
-                            <?php the_sub_field('tc_apply'); ?>
+                            <?php echo $tc_apply; ?>
 							<span class="icon-holder tooltipster-popover tooltipstered" data-tooltip-content="#tooltipster-popover_content-<?php echo $i ?>">
 								<svg class="icon icon-question" width="1em" height="1em">
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#question" width="100%" height="100%"></use>
@@ -128,7 +162,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 		                            </button>
 		                            <h6 class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></h6>
 		                            <p class="content"><?php the_sub_field('tc_popup_content'); ?></p>
-		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" target="_blank" role="button" class="btn btn-success"><?php the_sub_field('tc_button_text'); ?>
+		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" <?php if( get_sub_field('tc_link_include_nofollow') == 'yes' ): ?>rel="nofollow"<?php endif; ?> target="_blank" role="button" class="btn btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
 		                                	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
 		                				</svg>
@@ -142,31 +176,37 @@ if ( !function_exists( 'at_output_table' ) ) {
 					<!-- ticks -->
 					<div class="col-tick">
 						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" class="tick-link">
+                            <?php if( !get_sub_field('first_pointer_visible') == '' ): ?>
 							<span class="tick-item">
 								<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M23.334 11.96c-.713-.726-.872-1.829-.393-2.727.342-.64.366-1.401.064-2.062-.301-.66-.893-1.142-1.601-1.302-.991-.225-1.722-1.067-1.803-2.081-.059-.723-.451-1.378-1.062-1.77-.609-.393-1.367-.478-2.05-.229-.956.347-2.026.032-2.642-.776-.44-.576-1.124-.915-1.85-.915-.725 0-1.409.339-1.849.915-.613.809-1.683 1.124-2.639.777-.682-.248-1.44-.163-2.05.229-.61.392-1.003 1.047-1.061 1.77-.082 1.014-.812 1.857-1.803 2.081-.708.16-1.3.642-1.601 1.302s-.277 1.422.065 2.061c.479.897.32 2.001-.392 2.727-.509.517-.747 1.242-.644 1.96s.536 1.347 1.17 1.7c.888.495 1.352 1.51 1.144 2.505-.147.71.044 1.448.519 1.996.476.549 1.18.844 1.902.798 1.016-.063 1.953.54 2.317 1.489.259.678.82 1.195 1.517 1.399.695.204 1.447.072 2.031-.357.819-.603 1.936-.603 2.754 0 .584.43 1.336.562 2.031.357.697-.204 1.258-.722 1.518-1.399.363-.949 1.301-1.553 2.316-1.489.724.046 1.427-.249 1.902-.798.475-.548.667-1.286.519-1.996-.207-.995.256-2.01 1.145-2.505.633-.354 1.065-.982 1.169-1.7s-.135-1.443-.643-1.96zm-12.584 5.43l-4.5-4.364 1.857-1.857 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.642z"/></svg><?php the_sub_field('first_pointer_visible'); ?>
 							</span>
+                            <?php endif; ?>
+                            <?php if( !get_sub_field('second_pointer_visible') == '' ): ?>
 							<span class="tick-item">
 								<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M23.334 11.96c-.713-.726-.872-1.829-.393-2.727.342-.64.366-1.401.064-2.062-.301-.66-.893-1.142-1.601-1.302-.991-.225-1.722-1.067-1.803-2.081-.059-.723-.451-1.378-1.062-1.77-.609-.393-1.367-.478-2.05-.229-.956.347-2.026.032-2.642-.776-.44-.576-1.124-.915-1.85-.915-.725 0-1.409.339-1.849.915-.613.809-1.683 1.124-2.639.777-.682-.248-1.44-.163-2.05.229-.61.392-1.003 1.047-1.061 1.77-.082 1.014-.812 1.857-1.803 2.081-.708.16-1.3.642-1.601 1.302s-.277 1.422.065 2.061c.479.897.32 2.001-.392 2.727-.509.517-.747 1.242-.644 1.96s.536 1.347 1.17 1.7c.888.495 1.352 1.51 1.144 2.505-.147.71.044 1.448.519 1.996.476.549 1.18.844 1.902.798 1.016-.063 1.953.54 2.317 1.489.259.678.82 1.195 1.517 1.399.695.204 1.447.072 2.031-.357.819-.603 1.936-.603 2.754 0 .584.43 1.336.562 2.031.357.697-.204 1.258-.722 1.518-1.399.363-.949 1.301-1.553 2.316-1.489.724.046 1.427-.249 1.902-.798.475-.548.667-1.286.519-1.996-.207-.995.256-2.01 1.145-2.505.633-.354 1.065-.982 1.169-1.7s-.135-1.443-.643-1.96zm-12.584 5.43l-4.5-4.364 1.857-1.857 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.642z"/></svg><?php the_sub_field('second_pointer_visible'); ?>
 							</span>
+                            <?php endif; ?>
+                            <?php if( !get_sub_field('third_pointer_visible') == '' ): ?>
 							<span class="tick-item">
 								<svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M23.334 11.96c-.713-.726-.872-1.829-.393-2.727.342-.64.366-1.401.064-2.062-.301-.66-.893-1.142-1.601-1.302-.991-.225-1.722-1.067-1.803-2.081-.059-.723-.451-1.378-1.062-1.77-.609-.393-1.367-.478-2.05-.229-.956.347-2.026.032-2.642-.776-.44-.576-1.124-.915-1.85-.915-.725 0-1.409.339-1.849.915-.613.809-1.683 1.124-2.639.777-.682-.248-1.44-.163-2.05.229-.61.392-1.003 1.047-1.061 1.77-.082 1.014-.812 1.857-1.803 2.081-.708.16-1.3.642-1.601 1.302s-.277 1.422.065 2.061c.479.897.32 2.001-.392 2.727-.509.517-.747 1.242-.644 1.96s.536 1.347 1.17 1.7c.888.495 1.352 1.51 1.144 2.505-.147.71.044 1.448.519 1.996.476.549 1.18.844 1.902.798 1.016-.063 1.953.54 2.317 1.489.259.678.82 1.195 1.517 1.399.695.204 1.447.072 2.031-.357.819-.603 1.936-.603 2.754 0 .584.43 1.336.562 2.031.357.697-.204 1.258-.722 1.518-1.399.363-.949 1.301-1.553 2.316-1.489.724.046 1.427-.249 1.902-.798.475-.548.667-1.286.519-1.996-.207-.995.256-2.01 1.145-2.505.633-.354 1.065-.982 1.169-1.7s-.135-1.443-.643-1.96zm-12.584 5.43l-4.5-4.364 1.857-1.857 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.642z"/></svg><?php the_sub_field('third_pointer_visible'); ?>
 							</span>
+                            <?php endif; ?>
 						</a>
 					</div>
 
 					<!-- button -->
 					<div class="col-btn">
 						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" role="button" class="btn btn-success">
-							<b><span class="hidden-sm-up"><?php the_sub_field('sign_up_text'); ?> + </span><?php the_sub_field('cta_button_text'); ?></b>
+							<b><span class="hidden-sm-up"><?php echo $sign_up_text; ?> + </span><?php the_sub_field('cta_button_text'); ?></b>
 							<br class="hidden-sm-up">
-							<span class="btn-extra-text hidden-sm-up"><?php the_sub_field('go_to_text'); ?> <?php the_sub_field('brand_operator_name'); ?></span>
+							<span class="btn-extra-text hidden-sm-up"><?php echo $go_to_text; ?> <?php the_sub_field('brand_operator_name'); ?></span>
 							<svg class="icon icon-caret-right" width="1em" height="1em">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
 							</svg>
 						</a>
 
 						<?php if( get_sub_field('include_our_score') == 'yes' ): ?>
-							<div class="score-text"><?php the_sub_field('our_score_text'); ?>: 
+							<div class="score-text"><?php echo $our_score_text; ?>:
 								<span class="score-value"><?php the_sub_field('our_score'); ?></span>
 							</div>
 						<?php endif; ?>
@@ -179,6 +219,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 				</div>
 
+                <?php if( get_sub_field('include_a_mini_review_dropdown') == 'yes' ): ?>
 				<!-- collapse -->
 				<div class="collapse" id="bet-expanded-<?php echo $i ?>" aria-expanded="false" style="">
 					<div class="item-expand bg-faded">
@@ -195,16 +236,21 @@ if ( !function_exists( 'at_output_table' ) ) {
 								</li>
 							</ul> -->
 							<ul style="margin-top: 1em;" class="list-icons hidden-md-down">
+                                <?php if( !get_sub_field('first_pointer') == '' ): ?>
 								<li>
 							        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg><?php the_sub_field('first_pointer'); ?>
 							    </li>
-
+                                <?php endif; ?>
+                                <?php if( !get_sub_field('second_pointer') == '' ): ?>
 							    <li>
 							        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg><?php the_sub_field('second_pointer'); ?>
 							    </li>
+                                <?php endif; ?>
+                                <?php if( !get_sub_field('third_pointer') == '' ): ?>
 							    <li>
 							        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg><?php the_sub_field('third_pointer'); ?>
 							    </li>
+                                <?php endif; ?>
 							</ul>
 						</div>
 						
@@ -229,8 +275,8 @@ if ( !function_exists( 'at_output_table' ) ) {
 										<p><?php echo wp_trim_words($post_object->post_content, 80, '...'); ?></p>
 									</div>
 									<div class="links-holder">
-										<a href="<?php echo get_permalink($post_object->ID); ?>" onclick="" target="_blank" class="descr-link"><?php the_sub_field('read_the_full_review_text'); ?></a>	
-										<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" target="_blank" class="descr-link"><?php the_sub_field('create_your_account_text'); ?>
+										<a href="<?php echo get_permalink($post_object->ID); ?>" onclick="" target="_blank" class="descr-link"><?php echo $read_the_full_review_text; ?></a>
+										<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" target="_blank" class="descr-link"><?php echo $create_your_account_text; ?>
 										</a>
 									</div>
 								</div>
@@ -249,7 +295,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 								</div>
 								<div class="links-holder">
 									<!-- <a href="https://www.compare.bet/betting/mansionbet" onclick="" target="_blank" class="descr-link">Read our full review</a> -->	
-									<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" class="descr-link"><?php the_sub_field('create_your_account_text'); ?>
+									<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" class="descr-link"><?php echo $create_your_account_text; ?>
 									</a>
 								</div>
 							</div>
@@ -313,8 +359,9 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 				<div class="btn-collapse-holder">
 					<a class="btn-collapse" data-toggle="collapse" data-target="#bet-expanded-<?php echo $i ?>" onclick="" aria-expanded="false" aria-controls="bet-expanded-<?php echo $i ?>">
-						<span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-false"><?php echo strtoupper(get_sub_field('show_text')); ?> </span><span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-true"><?php echo strtoupper(get_sub_field('hide_text')); ?> </span><?php echo strtoupper(get_sub_field('brand_operator_name')); ?> <?php echo strtoupper(get_sub_field('review_text')); ?>&nbsp;&gt;</a>
+						<span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-false"><?php echo strtoupper($show_text); ?> </span><span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-true"><?php echo strtoupper($hide_text); ?> </span><?php echo strtoupper(get_sub_field('brand_operator_name')); ?> <?php echo strtoupper($review_text); ?>&nbsp;&gt;</a>
 				</div>
+                <?php endif; ?>
 
 			</div><!-- /item-holder -->
 			<?php $i++; ?>
