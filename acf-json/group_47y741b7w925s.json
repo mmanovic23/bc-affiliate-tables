@@ -396,7 +396,7 @@
                         "label": "Brand Logo Image",
                         "name": "brand_logo_image",
                         "type": "image",
-                        "instructions": "<b>Requirements<\/b><\/br>\r\nTransparent background.<\/br>\r\nFiletype: png.<\/br>\r\nMax. width: 500 px.",
+                        "instructions": "<b>Requirements<\/b><\/br>\r\nFiletype: png.<\/br>\r\nMax. width: 500 px.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -432,7 +432,7 @@
                     },
                     {
                         "key": "field_5b190d71a24ed",
-                        "label": "Brand Offer Title",
+                        "label": "Table Row Title",
                         "name": "brand_offer_title",
                         "type": "text",
                         "instructions": "Character limit: 79",
@@ -444,7 +444,7 @@
                             "id": ""
                         },
                         "default_value": "",
-                        "placeholder": "Example: \"Up To £50 Bonus With Code MAXBET\"",
+                        "placeholder": "Example: \"bet365 Sportbetting\" or \"Up To £50 Bonus With Code MAXBET\"",
                         "prepend": "",
                         "append": "",
                         "maxlength": 79
@@ -528,7 +528,7 @@
                             ]
                         ],
                         "wrapper": {
-                            "width": "",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -544,11 +544,11 @@
                         "label": "First Pointer",
                         "name": "first_pointer_visible",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -563,11 +563,11 @@
                         "label": "Second Pointer",
                         "name": "second_pointer_visible",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -582,11 +582,11 @@
                         "label": "Third Pointer",
                         "name": "third_pointer_visible",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
-                            "width": "33",
+                            "width": "",
                             "class": "",
                             "id": ""
                         },
@@ -727,7 +727,7 @@
                             ]
                         ],
                         "wrapper": {
-                            "width": "",
+                            "width": "25",
                             "class": "",
                             "id": ""
                         },
@@ -759,7 +759,7 @@
                         "label": "Include a Mini Review Dropdown?",
                         "name": "include_a_mini_review_dropdown",
                         "type": "radio",
-                        "instructions": "You'll be able to provide a Mini Review for the bookmaker in the table or select an existing review for this bookmaker, then the title and the content will be extracted and used as an Mini Review.",
+                        "instructions": "You'll be able to provide a Mini Review for the bookmaker in the table (manually) or select an existing review from posts \/ pages, then the title and the content will be extracted and used as an Mini Review.",
                         "required": 0,
                         "conditional_logic": 0,
                         "wrapper": {
@@ -783,7 +783,7 @@
                         "label": "First Pointer",
                         "name": "first_pointer",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -810,7 +810,7 @@
                         "label": "Second Pointer",
                         "name": "second_pointer",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -837,7 +837,7 @@
                         "label": "Third Pointer",
                         "name": "third_pointer",
                         "type": "text",
-                        "instructions": "Character limit: 35",
+                        "instructions": "Character limit: 35.\r\nOptional.",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -864,7 +864,7 @@
                         "label": "Review exist?",
                         "name": "review_exist",
                         "type": "radio",
-                        "instructions": "Do you want to pull title and content from an existing review?",
+                        "instructions": "Do you want to pull title and content from an existing review found in posts \/ pages? Links to the review and an affiliate link with the text \"Create your account\" (text can be changed in TABLE SETTINGS) will be made as well automatically.",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -996,7 +996,7 @@
                         "label": "Operator Screenshot",
                         "name": "operator_screenshot",
                         "type": "image",
-                        "instructions": "",
+                        "instructions": "If not provided, a dummy image will be used.\r\nEffects on desktop: Zoom image on hover.",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -1040,13 +1040,45 @@
                         "endpoint": 0
                     },
                     {
+                        "key": "field_5be9707437472",
+                        "label": "Include a T&C Popup Box on hover?",
+                        "name": "include_a_tc_popup_box_on_hover",
+                        "type": "radio",
+                        "instructions": "You'll be able to include a question mark icon underneath the Table Row Title, which on hover will trigger a popup box. The popup box is ideal to display T&C information about the bookie. The popup box includes a Title, Content and a Button that would ideally link to a Terms & Conditions page. Or it can be used as an additional CTA button, in that case just make sure to check the \"Include Nofollow to T&C link?\" if so.",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "yes": "Yes",
+                            "no": "No"
+                        },
+                        "allow_null": 0,
+                        "other_choice": 0,
+                        "default_value": "yes",
+                        "layout": "horizontal",
+                        "return_format": "value",
+                        "save_other_choice": 0
+                    },
+                    {
                         "key": "field_5b18f62efa546",
                         "label": "T&C Popup Title",
                         "name": "tc_popup_title",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5be9707437472",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -1065,7 +1097,15 @@
                         "type": "textarea",
                         "instructions": "",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5be9707437472",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -1079,12 +1119,20 @@
                     },
                     {
                         "key": "field_5b18f6a2fa548",
-                        "label": "T&C Link",
+                        "label": "T&C Button Link",
                         "name": "tc_link",
                         "type": "text",
                         "instructions": "",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5be9707437472",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -1103,7 +1151,15 @@
                         "type": "radio",
                         "instructions": "In case you are using an Affiliate link instead of a T&C link.",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5be9707437472",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",
@@ -1127,7 +1183,15 @@
                         "type": "text",
                         "instructions": "Character Limit: 30",
                         "required": 0,
-                        "conditional_logic": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_5be9707437472",
+                                    "operator": "==",
+                                    "value": "yes"
+                                }
+                            ]
+                        ],
                         "wrapper": {
                             "width": "",
                             "class": "",

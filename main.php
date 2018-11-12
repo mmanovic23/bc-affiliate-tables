@@ -144,6 +144,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 						<?php endif; ?>
 
+                        <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' ): ?>
 						<!-- tooltip -->
 						<div class="bonus-extra">
                             <?php echo $tc_apply; ?>
@@ -152,7 +153,6 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#question" width="100%" height="100%"></use>
 								</svg>
 							</span>
-
 
 							<!-- popover -->
 							<div class="tooltipster-popover_templates">
@@ -169,8 +169,8 @@ if ( !function_exists( 'at_output_table' ) ) {
 		            				</a>
 		                        </span>
 							</div>
-
 						</div>
+                        <?php endif; ?>
 					</div>
 
 					<!-- ticks -->
@@ -211,10 +211,12 @@ if ( !function_exists( 'at_output_table' ) ) {
 							</div>
 						<?php endif; ?>
 
+                        <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' ): ?>
 						<!-- Popup content that shows on mobile devices -->
 						<div class="extra-text">
 							<?php the_sub_field('tc_popup_content'); ?>
 						</div>
+                        <?php endif; ?>
 					</div>
 
 				</div>
