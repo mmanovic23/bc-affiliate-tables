@@ -4,6 +4,8 @@ Template Name: Single Affiliate Table Template
 Template Post Type: affiliate_table
 */
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 get_header();
 
 ?>

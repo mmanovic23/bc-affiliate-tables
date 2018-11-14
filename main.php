@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 if ( !function_exists( 'at_output_table' ) ) {
 
 	function at_output_table($id){
@@ -223,7 +226,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 
                 <?php if( get_sub_field('include_a_mini_review_dropdown') == 'yes' ): ?>
 				<!-- collapse -->
-				<div class="collapse" id="bet-expanded-<?php echo $i ?>" aria-expanded="false" style="">
+				<div class="at-collapse" id="bet-expanded-<?php echo $i ?>" aria-expanded="false" style="">
 					<div class="item-expand bg-faded">
 
 						<!-- icons TODO: REPLACE ICONS WITH SOMETHING ELSE -->
@@ -305,24 +308,30 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 
 						<ul class="list-icons hidden-lg-up">
+                            <?php if( !get_sub_field('first_pointer') == '' ): ?>
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('first_pointer'); ?>
 							</li>
+                            <?php endif; ?>
+                            <?php if( !get_sub_field('second_pointer') == '' ): ?>
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('second_pointer'); ?>
 							</li>
+                            <?php endif; ?>
+                            <?php if( !get_sub_field('third_pointer') == '' ): ?>
 							<li>
 								<svg class="icon icon-tick" width="1em" height="1em">
 								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#tick" width="100%" height="100%"></use>
 								</svg>
 								<?php the_sub_field('third_pointer'); ?>
 							</li>
+                            <?php endif; ?>
 						</ul>
 
 						<!-- screenshot -->
@@ -360,7 +369,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 				</div>
 
 				<div class="btn-collapse-holder">
-					<a class="btn-collapse" data-toggle="collapse" data-target="#bet-expanded-<?php echo $i ?>" onclick="" aria-expanded="false" aria-controls="bet-expanded-<?php echo $i ?>">
+					<a class="btn-collapse" data-toggle="at-collapse" data-target="#bet-expanded-<?php echo $i ?>" onclick="" aria-expanded="false" aria-controls="bet-expanded-<?php echo $i ?>">
 						<span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-false"><?php echo strtoupper($show_text); ?> </span><span data-target="#bet-expanded-<?php echo $i ?>" class="expanded-true"><?php echo strtoupper($hide_text); ?> </span><?php echo strtoupper(get_sub_field('brand_operator_name')); ?> <?php echo strtoupper($review_text); ?>&nbsp;&gt;</a>
 				</div>
                 <?php endif; ?>

@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 /*---------------------------------------*\
     Register Affiliate Table post type.
 \*---------------------------------------*/
@@ -41,6 +43,19 @@ function at_get_custom_post_type_template($single_template) {
      return $single_template;
 }
 add_filter( 'single_template', 'at_get_custom_post_type_template' );
+
+
+
+/*----------------------------------------*\
+    Set no-index for custom Post Type.
+\*----------------------------------------*/
+function at_noindex_for_custom_post()
+{
+	if ( is_singular( 'affiliate_table' ) ) {
+		echo '<meta name="robots" content="noindex, follow">';
+	}
+}
+add_action('wp_head', 'at_noindex_for_custom_post');
 
 
 
