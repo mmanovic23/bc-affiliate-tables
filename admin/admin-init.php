@@ -89,11 +89,29 @@ function at_example_post() {
 
 		);
 
+		$settings = array(
+			'column_1_header_title' => 'Betting Site',
+			'column_2_header_title' => 'New Customer Offer',
+			'column_3_header_title' => 'Key Features',
+			'column_4_header_title' => 'Go To Site & Sign Up',
+			'table_header_background_color' => '#e5e5e5',
+			'table_header_text_color' => '#000000',
+			'sign_up_text' =>  'Sign Up',
+			'our_score_text' =>  'Our Score',
+			'go_to_text' =>  'Go to',
+			'create_your_account_text' =>  'Create your account',
+			'read_the_full_review_text' =>  'Read the full review',
+			'review_text' =>  'Review',
+			'show_text' =>  'Show',
+			'hide_text' =>  'Hide',
+			'tc_apply' => 'T&C Apply'
+        );
+
 		$row = array(
 			'brand_operator_name' =>  'Unibet',
 			'brand_logo_image' => false,
 			'brand_logo_background' =>  '#278900',
-			'brand_offer_title' =>  'Brand Offer Title',
+			'brand_offer_title' =>  'Table Row Title',
 			'cta_affiliate_link' =>  '/goto/hahahahahaha',
 			'cta_button_text' =>  'CTA Button Text',
 			'include_star_rating' =>  'yes',
@@ -104,16 +122,8 @@ function at_example_post() {
 			'put_a_ribbon_on_this_table_row' =>  'yes',
 			'ribbon_text' =>  'Ribbon Text',
 			'ribbon_color' =>  '#dd9933',
-			'sign_up_text' =>  'Sign Up',
 			'include_our_score' =>  'yes',
 			'our_score' =>  '7.8',
-			'our_score_text' =>  'Our Score',
-			'go_to_text' =>  'Go to',
-			'create_your_account_text' =>  'Create your account',
-			'read_the_full_review_text' =>  'Read the full review',
-			'review_text' =>  'Review',
-			'show_text' =>  'Show',
-			'hide_text' =>  'Hide',
 			'first_pointer' =>  'First Pointer - Dropdown',
 			'second_pointer' =>  'Second Pointer - Dropdown',
 			'third_pointer' =>  'Third Pointer - Dropdown',
@@ -143,16 +153,8 @@ function at_example_post() {
 			'put_a_ribbon_on_this_table_row' =>  'yes',
 			'ribbon_text' =>  'Sponsored',
 			'ribbon_color' =>  '#81d742',
-			'sign_up_text' =>  'Sign Up',
 			'include_our_score' =>  'yes',
 			'our_score' =>  '7.8',
-			'our_score_text' =>  'Our Score',
-			'go_to_text' =>  'Go to',
-			'create_your_account_text' =>  'Create your account',
-			'read_the_full_review_text' =>  'Read the full review',
-			'review_text' =>  'Review',
-			'show_text' =>  'Show',
-			'hide_text' =>  'Hide',
 			'first_pointer' =>  'Accepts Paypal',
 			'second_pointer' =>  'Asian Market',
 			'third_pointer' =>  'Live Matches',
@@ -167,6 +169,7 @@ function at_example_post() {
 			'tc_button_text' =>  'Terms & Conditions'
 		);
 
+		add_row('table_settings', $settings, $post_id);
 		add_row('comparison_affiliate_table', $row, $post_id);
 		add_row('comparison_affiliate_table', $row2, $post_id);
 
