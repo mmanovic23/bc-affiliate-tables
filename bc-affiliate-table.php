@@ -50,8 +50,8 @@ function at_plugin_scripts_stylesheets() {
     if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'affiliate-table') || 'affiliate_table' == get_post_type() ) {
 
         wp_enqueue_style('at', AT_URL . 'build/css/main.min.css' );
-
 		wp_enqueue_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
+
     }
 }
 add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
@@ -76,9 +76,8 @@ add_action('admin_init', 'at_check_if_acf_exists');
 
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
-    DOESN'T WORK AT THE MOMENT, BUG FROM ACF
 \*----------------------------------------------------------------*/
-/*function at_is_field_group_exists($value, $type='post_title') {
+function at_is_field_group_exists($value, $type='post_title') {
 
 	$exists = false;
 	if ($field_groups = get_posts(array('post_type'=>'acf'))) {
@@ -89,15 +88,14 @@ add_action('admin_init', 'at_check_if_acf_exists');
 	    }
 	}
 	return $exists;
-}*/
+}
 
 
 
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
-    DOESN'T WORK AT THE MOMENT, BUG FROM ACF
 \*---------------------------------------------------------------------------*/
-/*$fieldGroup = 'Affiliate Table';
+$fieldGroup = 'Affiliate Table';
 
 if ( at_is_field_group_exists($fieldGroup) == false ) {
 
@@ -106,7 +104,7 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	    // append path
 	    $paths[] = AT_PATH . 'acf-json';
-	    var_dump($paths);
+	    //var_dump($paths);
 	    return $paths;
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
@@ -120,7 +118,7 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 	}
 	add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
-}*/
+}
 
 
 
