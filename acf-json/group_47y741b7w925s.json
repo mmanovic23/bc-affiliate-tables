@@ -641,7 +641,7 @@
                         "label": "Ribbon Text",
                         "name": "ribbon_text",
                         "type": "text",
-                        "instructions": "Character Limit: 36",
+                        "instructions": "",
                         "required": 0,
                         "conditional_logic": [
                             [
@@ -661,7 +661,7 @@
                         "placeholder": "Examples: \"Top Brand\" or \"Sponsored\" or \"Hot!\"",
                         "prepend": "",
                         "append": "",
-                        "maxlength": 36
+                        "maxlength": ""
                     },
                     {
                         "key": "field_5b19189cfb08c",
