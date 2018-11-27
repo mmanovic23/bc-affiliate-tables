@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.2.9
+ * Version: 1.3.0
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -100,14 +100,14 @@ $fieldGroup = 'Affiliate Table';
 if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	// Load ACF Settings from JSON file.
-	function at_acf_json_load_point( $paths ) {
+	/*function at_acf_json_load_point( $paths ) {
 
 	    // append path
 	    $paths[] = AT_PATH . 'acf-json';
 	    //var_dump($paths);
 	    return $paths;
 	}
-	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
+	add_filter('acf/settings/load_json', 'at_acf_json_load_point');*/
 
 
 	// Save ACF Settings to JSON file.
