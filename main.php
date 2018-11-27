@@ -200,7 +200,12 @@ if ( !function_exists( 'at_output_table' ) ) {
 					<!-- button -->
 					<div class="col-btn">
 						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" role="button" class="btn btn-success">
-							<b><span class="hidden-sm-up"><?php echo $sign_up_text; ?> + </span><?php the_sub_field('cta_button_text'); ?></b>
+							<b>
+				                <?php if( !$sign_up_text == '' ): ?>
+                                    <span class="hidden-sm-up"><?php echo $sign_up_text; ?> + </span>
+				                <?php endif; ?>
+                            <?php the_sub_field('cta_button_text'); ?>
+                            </b>
 							<br class="hidden-sm-up">
 							<span class="btn-extra-text hidden-sm-up"><?php echo $go_to_text; ?> <?php the_sub_field('brand_operator_name'); ?></span>
 							<svg class="icon icon-caret-right" width="1em" height="1em">
