@@ -41,9 +41,9 @@ $at_myUpdateChecker = new $at_className(
 
 
 
-/*--------------------------------------------------------------------------------------------------------*\
+/*---------------------------------------*\
     Register plugin scripts / styles.
-\*--------------------------------------------------------------------------------------------------------*/
+\*---------------------------------------*/
 function at_plugin_scripts_stylesheets() {
         wp_register_style('at-table', AT_URL . 'build/css/main.min.css' );
 		wp_register_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
