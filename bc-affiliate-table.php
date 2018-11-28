@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.3.5
+ * Version: 1.3.6
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -42,17 +42,11 @@ $at_myUpdateChecker = new $at_className(
 
 
 /*--------------------------------------------------------------------------------------------------------*\
-    Load plugin scripts / styles if the Table shortcode is used or if it is a Post Type Affiliate Table.
+    Register plugin scripts / styles.
 \*--------------------------------------------------------------------------------------------------------*/
 function at_plugin_scripts_stylesheets() {
-	
-    global $post;
-    if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'affiliate-table') || 'affiliate_table' == get_post_type() ) {
-
-        wp_enqueue_style('at', AT_URL . 'build/css/main.min.css' );
-		wp_enqueue_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
-
-    }
+        wp_register_style('at-table', AT_URL . 'build/css/main.min.css' );
+		wp_register_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
 
@@ -97,6 +91,7 @@ function at_is_field_group_exists($value, $type='post_title') {
 \*---------------------------------------------------------------------------*/
 $fieldGroup = 'Affiliate Table';
 
+/*
 if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	// Load ACF Settings from JSON file.
@@ -107,18 +102,18 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 	    //var_dump($paths);
 	    return $paths;
 	}
-	add_filter('acf/settings/load_json', 'at_acf_json_load_point');*/
-
-
-	// Save ACF Settings to JSON file.
-    function at_acf_json_save_point( $path ) {
-	    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
-	        $path = AT_PATH . 'acf-json';
-	    return $path;
-	}
-	add_filter('acf/settings/save_json', 'at_acf_json_save_point');
+	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
 
 }
+*/
+
+// Save ACF Settings to JSON file.
+function at_acf_json_save_point( $path ) {
+    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
+        $path = AT_PATH . 'acf-json';
+    return $path;
+}
+add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
 
 
@@ -136,6 +131,9 @@ function at_shortcodes_init()
 	    $at_atts = shortcode_atts([
 			'id' => '',
 		], $atts);
+
+	    wp_enqueue_style('at-table');
+	    wp_enqueue_script('at-js');
 
     	ob_start();
     	at_output_table(esc_html( $at_atts['id'] ));
