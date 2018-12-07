@@ -54,6 +54,20 @@ if ( !function_exists( 'at_output_table' ) ) {
 			<?php endwhile; ?>
 		<?php endif;
 
+/*		$order = array();
+
+		$repeater = get_field('comparison_affiliate_table', $id);
+
+		foreach( $repeater as $i => $row ) {
+
+			$order[ $i ] = $row['star_rating'];
+
+		}
+
+		array_multisort( $order, SORT_DESC, $repeater );
+
+        var_dump($order);*/
+
 		if( have_rows('comparison_affiliate_table', $id) ): ?>
 
 		<?php $i = 1; ?>
