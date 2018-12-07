@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.3.8
+ * Version: 1.3.9
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -71,7 +71,7 @@ add_action('admin_init', 'at_check_if_acf_exists');
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
 \*----------------------------------------------------------------*/
-function at_is_field_group_exists($value, $type='post_title') {
+/*function at_is_field_group_exists($value, $type='post_title') {
 
 	$exists = false;
 	if ($field_groups = get_posts(array('post_type'=>'acf'))) {
@@ -82,20 +82,20 @@ function at_is_field_group_exists($value, $type='post_title') {
 	    }
 	}
 	return $exists;
-}
+}*/
 
 
 
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
 \*---------------------------------------------------------------------------*/
-$fieldGroup = 'Affiliate Table';
+/*$fieldGroup = 'Affiliate Table';
 
-/*
+
 if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 	// Load ACF Settings from JSON file.
-	/*function at_acf_json_load_point( $paths ) {
+	function at_acf_json_load_point( $paths ) {
 
 	    // append path
 	    $paths[] = AT_PATH . 'acf-json';
@@ -104,8 +104,8 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
 
-}
-*/
+}*/
+
 
 // Save ACF Settings to JSON file.
 function at_acf_json_save_point( $path ) {

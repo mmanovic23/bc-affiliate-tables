@@ -282,7 +282,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 										<h2 class="descr-title"><?php echo $post_object->post_title ?></h2>
 									</div>
 									<div class="descr-text">
-										<p><?php echo wp_trim_words($post_object->post_content, 80, '...'); ?></p>
+										<p><?php echo strip_shortcodes(wp_trim_words($post_object->post_content, 80, '...')); ?></p>
 									</div>
 									<div class="links-holder">
 										<a href="<?php echo get_permalink($post_object->ID); ?>" onclick="" target="_blank" class="descr-link"><?php echo $read_the_full_review_text; ?></a>
@@ -301,7 +301,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<h2 class="descr-title"><?php the_sub_field('mini_review_title'); ?></h2>
 								</div>
 								<div class="descr-text">
-									<p><?php the_sub_field('mini_review_content'); ?></p>
+									<p><?php strip_shortcodes(the_sub_field('mini_review_content')); ?></p>
 								</div>
 								<div class="links-holder">
 									<!-- <a href="https://www.compare.bet/betting/mansionbet" onclick="" target="_blank" class="descr-link">Read our full review</a> -->	
