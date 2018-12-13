@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.3.9
+ * Version: 1.4.0
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -23,7 +23,6 @@ if(!defined ('AT_URL')) define( 'AT_URL', plugin_dir_url( __FILE__ ) );
 /*-----------------*\
     File includes.
 \*-----------------*/
-include_once( AT_PATH . 'main.php');
 include_once( AT_PATH . 'admin/admin-init.php');
 
 
@@ -52,21 +51,41 @@ add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
 
 
 
-/*--------------------------------------------------------------*\
-    NOTICE ABOUT ACF PRO IF ACF IS NOT INSTALLED AND ACTIVATED
-\*--------------------------------------------------------------*/
-function at_check_if_acf_exists() {
+/*----------------------------------------*\
+    If ACF doesnt exist, include ACF.
+\*----------------------------------------*/
+if ( !class_exists('acf') ) {
 
-    if( !class_exists('acf') ) : ?>
-        <div class="notice notice-error is-dismissible">
-            <p>You need to install &amp; activate ACF PRO to make BC Affiliate Tables plugin work!</p>
-            <p>In Spanish: Installo ACF PRO Plugino, if no-o, then'o no work-o! No comprende? Contacto Hanningo</p>
-        </div>
-    <?php endif;
+        // 1. customize ACF path
+        function at_acf_settings_path( $path ) {
+
+            // update path
+            $path = AT_PATH . 'acf/';
+
+            // return
+            return $path;
+
+        }
+        add_filter( 'acf/settings/path', 'at_acf_settings_path' );
+
+
+        // 2. customize ACF dir
+        function at_acf_settings_dir( $dir ) {
+
+            // update path
+            $dir = plugins_url() . '/bc-affiliate-tables/acf/';
+
+            // return
+            return $dir;
+
+        }
+        add_filter( 'acf/settings/dir', 'at_acf_settings_dir' );
+
+
+        // 4. Include ACF
+        include_once( AT_PATH . 'acf/acf.php' );
+
 }
-add_action('admin_init', 'at_check_if_acf_exists');
-
-
 
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
@@ -89,10 +108,8 @@ add_action('admin_init', 'at_check_if_acf_exists');
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
 \*---------------------------------------------------------------------------*/
-/*$fieldGroup = 'Affiliate Table';
-
-
-if ( at_is_field_group_exists($fieldGroup) == false ) {
+/*var_dump(at_is_field_group_exists('Affiliate Table'));
+if ( at_is_field_group_exists('Affiliate Table') == false ) {
 
 	// Load ACF Settings from JSON file.
 	function at_acf_json_load_point( $paths ) {
@@ -108,12 +125,12 @@ if ( at_is_field_group_exists($fieldGroup) == false ) {
 
 
 // Save ACF Settings to JSON file.
-function at_acf_json_save_point( $path ) {
+/*function at_acf_json_save_point( $path ) {
     if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
         $path = AT_PATH . 'acf-json';
     return $path;
 }
-add_filter('acf/settings/save_json', 'at_acf_json_save_point');
+add_filter('acf/settings/save_json', 'at_acf_json_save_point');*/
 
 
 
@@ -134,6 +151,7 @@ function at_shortcodes_init()
 
 	    wp_enqueue_style('at-table');
 	    wp_enqueue_script('at-js');
+	    include_once( AT_PATH . 'main.php');
 
     	ob_start();
     	at_output_table(esc_html( $at_atts['id'] ));

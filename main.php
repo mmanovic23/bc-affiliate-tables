@@ -54,20 +54,6 @@ if ( !function_exists( 'at_output_table' ) ) {
 			<?php endwhile; ?>
 		<?php endif;
 
-/*		$order = array();
-
-		$repeater = get_field('comparison_affiliate_table', $id);
-
-		foreach( $repeater as $i => $row ) {
-
-			$order[ $i ] = $row['star_rating'];
-
-		}
-
-		array_multisort( $order, SORT_DESC, $repeater );
-
-        var_dump($order);*/
-
 		if( have_rows('comparison_affiliate_table', $id) ): ?>
 
 		<?php $i = 1; ?>
@@ -178,8 +164,8 @@ if ( !function_exists( 'at_output_table' ) ) {
 										<span aria-hidden="true">×</span>
 		                            </button>
 		                            <h6 class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></h6>
-		                            <p class="content"><?php the_sub_field('tc_popup_content'); ?></p>
-		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" <?php if( get_sub_field('tc_link_include_nofollow') == 'yes' ): ?>rel="nofollow"<?php endif; ?> target="_blank" role="button" class="btn btn-success"><?php the_sub_field('tc_button_text'); ?>
+		                            <p class="tp-content"><?php the_sub_field('tc_popup_content'); ?></p>
+		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" <?php if( get_sub_field('tc_link_include_nofollow') == 'yes' ): ?>rel="nofollow"<?php endif; ?> target="_blank" role="button" class="at-btn at-btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
 		                                	<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#caret-right" width="100%" height="100%"></use>
 		                				</svg>
@@ -213,7 +199,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 					<!-- button -->
 					<div class="col-btn">
-						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" role="button" class="btn btn-success">
+						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" role="button" class="at-btn at-btn-success">
 							<b>
 				                <?php if( !$sign_up_text == '' ): ?>
                                     <span class="hidden-sm-up"><?php echo $sign_up_text; ?> + </span>

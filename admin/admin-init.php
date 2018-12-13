@@ -280,6 +280,38 @@ add_action('admin_head', 'at_admin_custom_css');
 
 
 
+/*-----------------------------------------------------*\
+    Populate Select field for the 3 Boxes Shortcode.
+\*-----------------------------------------------------*/
+/*function acf_load_color_field_choices( $field ) {
+
+	// reset choices
+	$field['choices'] = array();
+
+	// if has rows
+	if( have_rows('comparison_affiliate_table', 'option') ) {
+		// while has rows
+		while( have_rows('comparison_affiliate_table', 'option') ) {
+
+			// instantiate row
+			the_row();
+
+			// vars
+			$value = get_sub_field('brand_operator_name');
+			$label = get_sub_field('brand_operator_name');
+
+			// append to choices
+			$field['choices'][ $value ] = $label;
+
+		}
+	}
+	// return the field
+	return $field;
+}
+add_filter('acf/load_field/type=select', 'acf_load_color_field_choices');*/
+
+
+
 /*-------------------------*\
     Post Sidebar Sticky.
 \*-------------------------*/
