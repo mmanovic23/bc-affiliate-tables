@@ -163,7 +163,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<button type="button" class="close" aria-label="Close">
 										<span aria-hidden="true">×</span>
 		                            </button>
-		                            <h6 class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></h6>
+		                            <b class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></b>
 		                            <p class="tp-content"><?php the_sub_field('tc_popup_content'); ?></p>
 		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" <?php if( get_sub_field('tc_link_include_nofollow') == 'yes' ): ?>rel="nofollow"<?php endif; ?> target="_blank" role="button" class="at-btn at-btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
@@ -279,7 +279,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 								<!-- description -->
 								<div class="col-descr">
 									<div class="headings">
-										<h2 class="descr-title"><?php echo $post_object->post_title ?></h2>
+										<b class="descr-title"><?php echo $post_object->post_title ?></b>
 									</div>
 									<div class="descr-text">
 										<p><?php echo strip_shortcodes(wp_trim_words($post_object->post_content, 80, '...')); ?></p>
@@ -298,7 +298,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 							<!-- description -->
 							<div class="col-descr">
 								<div class="headings">
-									<h2 class="descr-title"><?php the_sub_field('mini_review_title'); ?></h2>
+									<b class="descr-title"><?php the_sub_field('mini_review_title'); ?></b>
 								</div>
 								<div class="descr-text">
 									<p><?php strip_shortcodes(the_sub_field('mini_review_content')); ?></p>
