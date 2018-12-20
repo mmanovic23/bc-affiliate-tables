@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.4.0
+ * Version: 1.4.1
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -87,13 +87,15 @@ if ( !class_exists('acf') ) {
 
 }
 
+
+
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
 \*----------------------------------------------------------------*/
-/*function at_is_field_group_exists($value, $type='post_title') {
+function at_is_field_group_exists($value, $type='post_title') {
 
 	$exists = false;
-	if ($field_groups = get_posts(array('post_type'=>'acf'))) {
+	if ($field_groups = get_posts(array('post_type'=>'acf-field-group'))) {
 	    foreach ($field_groups as $field_group) {
 	        if ($field_group->$type == $value) {
 	            $exists = true;
@@ -101,14 +103,14 @@ if ( !class_exists('acf') ) {
 	    }
 	}
 	return $exists;
-}*/
+}
 
 
 
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
 \*---------------------------------------------------------------------------*/
-/*var_dump(at_is_field_group_exists('Affiliate Table'));
+//var_dump(at_is_field_group_exists('Affiliate Table'));
 if ( at_is_field_group_exists('Affiliate Table') == false ) {
 
 	// Load ACF Settings from JSON file.
@@ -116,21 +118,21 @@ if ( at_is_field_group_exists('Affiliate Table') == false ) {
 
 	    // append path
 	    $paths[] = AT_PATH . 'acf-json';
-	    //var_dump($paths);
+//	    var_dump($paths);
 	    return $paths;
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
 
-}*/
+}
 
 
 // Save ACF Settings to JSON file.
-/*function at_acf_json_save_point( $path ) {
-    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_47y741b7w925s" )
+function at_acf_json_save_point( $path ) {
+    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_5b17c4fcecb0c" )
         $path = AT_PATH . 'acf-json';
     return $path;
 }
-add_filter('acf/settings/save_json', 'at_acf_json_save_point');*/
+add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
 
 
