@@ -109,7 +109,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<picture>
 									
 									<?php if( $image ) {
-										echo wp_get_attachment_image( $image, 'full', "", ["class" => "logo"]  );
+										echo wp_get_attachment_image( $image, 'medium', "", ["class" => "logo"]  );
 									} else{ ?>
 										<img class="logo" src="<?php echo AT_URL ?>build/images/placeholder-image.png"/>
 									<?php }
