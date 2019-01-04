@@ -1,139 +1,138 @@
-[
-    {
-        "key": "group_5c275e87b66ec",
-        "title": "Offer Boxes",
-        "fields": [
-            {
-                "key": "field_5c275f77795b9",
-                "label": "Offer box 1",
-                "name": "offer_box_one",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "33",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                    "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                    "455.1": "qwerqwerqwer - qwreqwer",
-                    "455.2": "qwerqwerqwer - qwer",
-                    "435.1": "Affiliate Table Example - Row 1",
-                    "435.2": "Affiliate Table Example - Row 2",
-                    "137.1": "Affiliate Hanning - Row 1",
-                    "137.2": "Affiliate Hanning - Row 2",
-                    "137.3": "Affiliate Hanning - Row 3",
-                    "137.4": "Affiliate Hanning - Row 4"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
+{
+    "key": "group_5c275e87b66ec",
+    "title": "Offer Boxes",
+    "fields": [
+        {
+            "key": "field_5c275f77795b9",
+            "label": "Offer box 1",
+            "name": "offer_box_one",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
             },
-            {
-                "key": "field_5c275f87795ba",
-                "label": "Offer box 2",
-                "name": "offer_box_two",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "33",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                    "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                    "455.1": "qwerqwerqwer - qwreqwer",
-                    "455.2": "qwerqwerqwer - qwer",
-                    "435.1": "Affiliate Table Example - Row 1",
-                    "435.2": "Affiliate Table Example - Row 2",
-                    "137.1": "Affiliate Hanning - Row 1",
-                    "137.2": "Affiliate Hanning - Row 2",
-                    "137.3": "Affiliate Hanning - Row 3",
-                    "137.4": "Affiliate Hanning - Row 4"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
+            "choices": {
+                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                "455.1": "qwerqwerqwer - qwreqwer",
+                "455.2": "qwerqwerqwer - qwer",
+                "435.1": "Affiliate Table Example - Row 1",
+                "435.2": "Affiliate Table Example - Row 2",
+                "137.1": "Affiliate Hanning - Row 1",
+                "137.2": "Affiliate Hanning - Row 2",
+                "137.3": "Affiliate Hanning - Row 3",
+                "137.4": "Affiliate Hanning - Row 4"
             },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 1,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c275f87795ba",
+            "label": "Offer box 2",
+            "name": "offer_box_two",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                "455.1": "qwerqwerqwer - qwreqwer",
+                "455.2": "qwerqwerqwer - qwer",
+                "435.1": "Affiliate Table Example - Row 1",
+                "435.2": "Affiliate Table Example - Row 2",
+                "137.1": "Affiliate Hanning - Row 1",
+                "137.2": "Affiliate Hanning - Row 2",
+                "137.3": "Affiliate Hanning - Row 3",
+                "137.4": "Affiliate Hanning - Row 4"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 1,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5c275f92795bb",
+            "label": "Offer box 3",
+            "name": "offer_box_three",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                "455.1": "qwerqwerqwer - qwreqwer",
+                "455.2": "qwerqwerqwer - qwer",
+                "435.1": "Affiliate Table Example - Row 1",
+                "435.2": "Affiliate Table Example - Row 2",
+                "137.1": "Affiliate Hanning - Row 1",
+                "137.2": "Affiliate Hanning - Row 2",
+                "137.3": "Affiliate Hanning - Row 3",
+                "137.4": "Affiliate Hanning - Row 4"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 1,
+            "ajax": 1,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
             {
-                "key": "field_5c275f92795bb",
-                "label": "Offer box 3",
-                "name": "offer_box_three",
-                "type": "select",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "33",
-                    "class": "",
-                    "id": ""
-                },
-                "choices": {
-                    "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                    "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                    "455.1": "qwerqwerqwer - qwreqwer",
-                    "455.2": "qwerqwerqwer - qwer",
-                    "435.1": "Affiliate Table Example - Row 1",
-                    "435.2": "Affiliate Table Example - Row 2",
-                    "137.1": "Affiliate Hanning - Row 1",
-                    "137.2": "Affiliate Hanning - Row 2",
-                    "137.3": "Affiliate Hanning - Row 3",
-                    "137.4": "Affiliate Hanning - Row 4"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "return_format": "value",
-                "ajax": 0,
-                "placeholder": ""
+                "param": "post_type",
+                "operator": "==",
+                "value": "offer_boxes"
             }
-        ],
-        "location": [
-            [
-                {
-                    "param": "post_type",
-                    "operator": "==",
-                    "value": "offer_boxes"
-                }
-            ]
-        ],
-        "menu_order": 0,
-        "position": "normal",
-        "style": "default",
-        "label_placement": "top",
-        "instruction_placement": "label",
-        "hide_on_screen": [
-            "permalink",
-            "the_content",
-            "excerpt",
-            "discussion",
-            "comments",
-            "revisions",
-            "slug",
-            "author",
-            "format",
-            "page_attributes",
-            "featured_image",
-            "categories",
-            "tags",
-            "send-trackbacks"
-        ],
-        "active": 1,
-        "description": ""
-    }
-]
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "permalink",
+        "the_content",
+        "excerpt",
+        "discussion",
+        "comments",
+        "revisions",
+        "slug",
+        "author",
+        "format",
+        "page_attributes",
+        "featured_image",
+        "categories",
+        "tags",
+        "send-trackbacks"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1546443928
+}

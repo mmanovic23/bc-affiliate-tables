@@ -176,10 +176,10 @@ function at_shortcodes_init()
 
 		//wp_enqueue_style('at-table');
 		//wp_enqueue_script('at-js');
-		//include_once( AT_PATH . 'main.php');
+		include_once( AT_PATH . 'view/shortcode-boxes.php');
 
 		ob_start();
-		at_output_table(esc_html( $at_atts['id'] ));
+		at_output_boxes(esc_html( $at_atts['id'] ));
 		$output = ob_get_contents();
 		ob_end_clean();
 		return $output;
