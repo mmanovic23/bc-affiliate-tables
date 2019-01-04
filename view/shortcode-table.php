@@ -107,20 +107,18 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<?php $image = get_sub_field('brand_logo_image'); ?>
 
 									<picture>
-									
 									<?php if( $image ) {
 										echo wp_get_attachment_image( $image, 'medium', "", ["class" => "logo"]  );
 									} else{ ?>
 										<img class="logo" src="<?php echo AT_URL ?>build/images/placeholder-image.png"/>
 									<?php }
 									?>
-
 									</picture>
+
 								</div>
 							</a>
 
 							<?php if( get_sub_field('include_star_rating') == 'yes' ): ?>
-
 							<!-- Star Rating -->
 							<span class="rating-bar">
 								<span class="rating">

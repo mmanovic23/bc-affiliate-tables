@@ -32,14 +32,47 @@ if ( !function_exists( 'at_output_boxes' ) ) {
 									</svg>
 								</div>
 							<?php endif; ?>
-							<h2>Smallest Company</h2>
-							<p>$0.01/month</p>
+
+							<a href="<?php echo $specific_row['cta_affiliate_link']; ?>" rel="nofollow" target="_blank">
+								<div style="background-color:<?php echo $specific_row['brand_logo_background']; ?>">
+
+									<?php $image = $specific_row['brand_logo_image']; ?>
+
+									<picture>
+										<?php if( $image ) {
+											echo wp_get_attachment_image( $image, 'medium', "", ["class" => "logo"]  );
+										} else{ ?>
+											<img class="logo" src="<?php echo AT_URL ?>build/images/placeholder-image.png"/>
+										<?php }
+										?>
+									</picture>
+								</div>
+							</a>
+
+							<?php if( $specific_row['include_star_rating'] == 'yes' ): ?>
+								<!-- Star Rating -->
+								<span class="rating-bar">
+								<span class="rating">
+									<span class="rate" data-rateyo-rating="<?php echo $specific_row['star_rating']; ?>"></span>
+								</span>
+									<!-- <span class="rating-count">487 reviews</span> -->
+		                    </span>
+							<?php endif; ?>
+
+							<strong><?php echo $specific_row['brand_offer_title']; ?></strong>
+<!--							<p>$0.01/month</p>-->
 						</div>
 						<div class="offer-box-details">
 							<ul>
-								<li>Unlimited <span>Coolness</span></li>
-								<li>Unlimited <span>Cuteness</span></li>
-								<li>Unlimited <span>Freebies</span></li>
+								<?php if( !$specific_row['first_pointer_visible'] == '' ): ?>
+									<li><?php echo $specific_row['first_pointer_visible']; ?></li>
+								<?php endif; ?>
+								<?php if( !$specific_row['second_pointer_visible'] == '' ): ?>
+									<li><?php echo $specific_row['second_pointer_visible']; ?></li>
+								<?php endif; ?>
+								<?php if( !$specific_row['third_pointer_visible'] == '' ): ?>
+									<li><?php echo $specific_row['third_pointer_visible']; ?></li>
+								<?php endif; ?>
 							</ul>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec pellentesque ex. Morbi metus ante, congue non suscipit a, accumsan eget odio. Mauris consectetur blandit ante convallis ornare. </p>
 							<a class="at-btn at-btn-success">Start Your Free Trial for 25 Years <i class="fa fa-arrow-right"></i></a>
