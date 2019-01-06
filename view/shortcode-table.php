@@ -92,7 +92,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 							
 							<?php if( get_sub_field('put_a_ribbon_on_this_table_row') == 'yes' ): ?>
 								<!-- ribbon -->
-								<div class="tag-ribbons" style="color:<?php the_sub_field('ribbon_color'); ?>">
+								<div class="tag-ribbon" style="color:<?php the_sub_field('ribbon_color'); ?>">
 								<div class="inner"><?php the_sub_field('ribbon_text'); ?></div>
 									<svg class="corner-right" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.5 25" preserveAspectRatio="none">
 										<polygon fill="currentColor" points="5.5,25 0.1,25 0,0 5.5,0 0.5,12.5 "></polygon>
@@ -134,7 +134,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 					<!-- bonus -->
 					<div class="col-bonus">
 						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" class="bonus-link">
-							<div class="bonus-main"><b><?php the_sub_field('brand_offer_title'); ?></b>
+							<div class="bonus-main"><strong><?php the_sub_field('brand_offer_title'); ?></strong>
 							</div>
 						</a>
 						
@@ -161,7 +161,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 									<button type="button" class="close" aria-label="Close">
 										<span aria-hidden="true">×</span>
 		                            </button>
-		                            <b class="title"><b><?php the_sub_field('tc_popup_title'); ?></b></b>
+		                            <strong class="title"><?php the_sub_field('tc_popup_title'); ?></strong>
 		                            <p class="tp-content"><?php the_sub_field('tc_popup_content'); ?></p>
 		                            <a href="<?php the_sub_field('tc_link'); ?>" onclick="" <?php if( get_sub_field('tc_link_include_nofollow') == 'yes' ): ?>rel="nofollow"<?php endif; ?> target="_blank" role="button" class="at-btn at-btn-success"><?php the_sub_field('tc_button_text'); ?>
 		                                <svg class="icon icon-caret-right" width="1em" height="1em">
@@ -198,12 +198,12 @@ if ( !function_exists( 'at_output_table' ) ) {
 					<!-- button -->
 					<div class="col-btn">
 						<a href="<?php the_sub_field('cta_affiliate_link'); ?>" onclick="" rel="nofollow" target="_blank" role="button" class="at-btn at-btn-success">
-							<b>
+							<strong>
 				                <?php if( !$sign_up_text == '' ): ?>
                                     <span class="hidden-sm-up"><?php echo $sign_up_text; ?> + </span>
 				                <?php endif; ?>
                             <?php the_sub_field('cta_button_text'); ?>
-                            </b>
+                            </strong>
 							<br class="hidden-sm-up">
 							<span class="btn-extra-text hidden-sm-up"><?php echo $go_to_text; ?> <?php the_sub_field('brand_operator_name'); ?></span>
 							<svg class="icon icon-caret-right" width="1em" height="1em">
