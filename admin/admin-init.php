@@ -458,7 +458,7 @@ function acf_load_affiliate_table_rows_into_offer_boxes_select_fields( $field ) 
                 //$value = get_sub_field( 'brand_operator_name' );
 
 	            $label = get_sub_field( 'brand_operator_name' );
-	            $value = get_the_ID() .'.'. (string)get_row_index();
+	            $value = get_the_ID() .'_'. (string)get_row_index();
                 //var_dump($value);
                 //var_dump($label);
 

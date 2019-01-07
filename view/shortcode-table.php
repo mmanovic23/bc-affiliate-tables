@@ -149,7 +149,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 						<!-- tooltip -->
 						<div class="bonus-extra">
                             <?php echo $tc_apply; ?>
-							<span class="icon-holder tooltipster-popover tooltipstered" data-tooltip-content="#tooltipster-popover_content-<?php echo $i ?>">
+							<span class="icon-holder tooltipster-popover tooltipstered" data-tooltip-content="#tooltipster-popover_content-<?php echo $id . '_' . $i ?>">
 								<svg class="icon icon-question" width="1em" height="1em">
 									<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="<?php echo AT_URL ?>build/images/svg-symbols.svg#question" width="100%" height="100%"></use>
 								</svg>
@@ -157,7 +157,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 
 							<!-- popover -->
 							<div class="tooltipster-popover_templates">
-		                        <span id="tooltipster-popover_content-<?php echo $i ?>">
+		                        <span id="tooltipster-popover_content-<?php echo $id . '_' . $i ?>">
 									<button type="button" class="close" aria-label="Close">
 										<span aria-hidden="true">×</span>
 		                            </button>
