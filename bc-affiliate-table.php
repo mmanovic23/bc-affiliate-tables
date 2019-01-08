@@ -44,7 +44,7 @@ $at_myUpdateChecker = new $at_className(
     Register plugin scripts / styles.
 \*---------------------------------------*/
 function at_plugin_scripts_stylesheets() {
-        wp_register_style('at-table', AT_URL . 'build/css/main.min.css' );
+        wp_register_style('at-main', AT_URL . 'build/css/main.min.css' );
 		wp_register_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
@@ -92,18 +92,18 @@ if ( !class_exists('acf') ) {
 /*----------------------------------------------------------------*\
     Helper function. Check if given field group already exists.
 \*----------------------------------------------------------------*/
-function at_is_field_group_exists($value, $type='post_title') {
-
-	$exists = false;
-	if ($field_groups = get_posts(array('post_type'=>'acf-field-group'))) {
-	    foreach ($field_groups as $field_group) {
-	        if ($field_group->$type == $value) {
-	            $exists = true;
-	        }
-	    }
-	}
-	return $exists;
-}
+//function at_is_field_group_exists($value, $type='post_title') {
+//
+//	$exists = false;
+//	if ($field_groups = get_posts(array('post_type'=>'acf-field-group'))) {
+//	    foreach ($field_groups as $field_group) {
+//	        if ($field_group->$type == $value) {
+//	            $exists = true;
+//	        }
+//	    }
+//	}
+//	return $exists;
+//}
 
 
 
@@ -111,7 +111,7 @@ function at_is_field_group_exists($value, $type='post_title') {
     If group field "Affiliate Table" doesn't exists, load JSON group field.
 \*---------------------------------------------------------------------------*/
 //var_dump(at_is_field_group_exists('Affiliate Table'));
-if ( at_is_field_group_exists('Affiliate Table') == false ) {
+//if ( at_is_field_group_exists('Affiliate Table') == false ) {
 
 	// Load ACF Settings from JSON file.
 	function at_acf_json_load_point( $paths ) {
@@ -123,7 +123,7 @@ if ( at_is_field_group_exists('Affiliate Table') == false ) {
 	}
 	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
 
-}
+//}
 
 
 // Save ACF Settings to JSON file.
@@ -138,7 +138,7 @@ add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
 
 /*--------------------------------*\
-    Output the affiliate table.
+            Shortcodes.
 \*--------------------------------*/
 function at_shortcodes_init()
 {
@@ -152,7 +152,7 @@ function at_shortcodes_init()
 			'id' => '',
 		], $atts);
 
-	    wp_enqueue_style('at-table');
+	    wp_enqueue_style('at-main');
 	    wp_enqueue_script('at-js');
 	    include_once( AT_PATH . 'view/shortcode-table.php');
 
@@ -174,8 +174,8 @@ function at_shortcodes_init()
 			'id' => '',
 		], $atts);
 
-		//wp_enqueue_style('at-table');
-		//wp_enqueue_script('at-js');
+		wp_enqueue_style('at-main');
+		wp_enqueue_script('at-js');
 		include_once( AT_PATH . 'view/shortcode-boxes.php');
 
 		ob_start();

@@ -56,12 +56,17 @@ add_action( 'init', 'at_setup_post_types' );
     Affiliate Table Post type Template.
 \*----------------------------------------*/
 function at_get_custom_post_type_template($single_template) {
-     global $post;
+    global $post;
 
-     if ($post->post_type == 'affiliate_table') {
-          $single_template = AT_PATH . 'templates/single-affiliate_table.php';
-     }
-     return $single_template;
+    if ($post->post_type == 'affiliate_table') {
+        $single_template = AT_PATH . 'templates/single-affiliate_table.php';
+        return $single_template;
+    }
+    if ($post->post_type == 'offer_boxes') {
+        $single_template = AT_PATH . 'templates/single-offer_boxes.php';
+        return $single_template;
+    }
+
 }
 add_filter( 'single_template', 'at_get_custom_post_type_template' );
 
@@ -434,53 +439,54 @@ add_action('admin_head', 'at_admin_custom_css');
     Populate Select field for the Offer Boxes Shortcode.
 \*---------------------------------------------------------*/
 function acf_load_affiliate_table_rows_into_offer_boxes_select_fields( $field ) {
-    //global $post;
 
-	//var_dump($field);
+		//var_dump($field);
 
-	// reset choices
-    $field['choices'] = array();
+		// reset choices
+		$field['choices'] = array();
 
-	$query = new WP_Query(array(
-		'post_type' => 'affiliate_table',
-        'posts_per_page' => 100
-	));
+		$query = new WP_Query( array(
+			'post_type'      => 'affiliate_table',
+			'posts_per_page' => 100
+		) );
 
-	//var_dump($query);
-    while ($query->have_posts()) : $query->the_post();
-        if ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
-            while ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
+		//var_dump($query);
+		while ( $query->have_posts() ) : $query->the_post();
+			if ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
+				while ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
 
-                // instantiate row
-                the_row();
+					// instantiate row
+					the_row();
 
-                // vars
-                //$value = get_sub_field( 'brand_operator_name' );
+					// vars
+					//$value = get_sub_field( 'brand_operator_name' );
 
-	            $label = get_sub_field( 'brand_operator_name' );
-	            $value = get_the_ID() .'_'. (string)get_row_index();
-                //var_dump($value);
-                //var_dump($label);
+					$label = get_sub_field( 'brand_operator_name' );
+					$value = get_the_ID().'_'.(string)get_row_index();
+					//var_dump($value);
+					//var_dump($label);
 
-                $title = get_the_title();
+					$title = get_the_title();
 
-                // append to choices
-	            $field['choices'][ $value ] = $title . ' - ' . $label;
+					// append to choices
+					$field['choices'][ $value ] = $title . ' - ' . $label;
 
-            }
-        }
+				}
+			}
 
-    endwhile;
+		endwhile;
 
-	wp_reset_query();
+		wp_reset_query();
 
-	//var_dump($field);
+		//var_dump($field);
 
-	// return the field
-	return $field;
+		// return the field
+		return $field;
 
 }
-add_filter('acf/load_field/type=select', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
+add_filter('acf/load_field/key=field_5c275f77795b9', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
+add_filter('acf/load_field/key=field_5c275f87795ba', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
+add_filter('acf/load_field/key=field_5c275f92795bb', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
 
 
 

@@ -3,10 +3,10 @@
     "title": "Offer Boxes",
     "fields": [
         {
-            "key": "field_5c275f77795b9",
-            "label": "Offer box 1",
-            "name": "offer_box_one",
-            "type": "select",
+            "key": "field_5c3359fee3bc4",
+            "label": "Offer Box 1",
+            "name": "offer_box_1",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,31 +15,110 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                "455.1": "qwerqwerqwer - qwreqwer",
-                "455.2": "qwerqwerqwer - qwer",
-                "435.1": "Affiliate Table Example - Row 1",
-                "435.2": "Affiliate Table Example - Row 2",
-                "137.1": "Affiliate Hanning - Row 1",
-                "137.2": "Affiliate Hanning - Row 2",
-                "137.3": "Affiliate Hanning - Row 3",
-                "137.4": "Affiliate Hanning - Row 4"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 1,
-            "return_format": "value",
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5c275f77795b9",
+                    "label": "Select Box 1",
+                    "name": "offer_box_select_1",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                        "455_1": "qwerqwerqwer - qwreqwer",
+                        "455_2": "qwerqwerqwer - qwer",
+                        "435_1": "Affiliate Table Example - Row 1",
+                        "435_2": "Affiliate Table Example - Row 2",
+                        "137_1": "Affiliate Hanning - STS",
+                        "137_2": "Affiliate Hanning - LVBET",
+                        "137_3": "Affiliate Hanning - Row 3",
+                        "137_4": "Affiliate Hanning - Row 4"
+                    },
+                    "default_value": [],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5c335672a0d74",
+                    "label": "Override Tag Ribbon Text?",
+                    "name": "override_tag_ribbon_text_box_1",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f77795b9",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "no",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_5c33571ea0d75",
+                    "label": "Tag Ribbon Text",
+                    "name": "tag_ribbon_text_box_1",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f77795b9",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5c335672a0d74",
+                                "operator": "==",
+                                "value": "yes"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         },
         {
-            "key": "field_5c275f87795ba",
-            "label": "Offer box 2",
-            "name": "offer_box_two",
-            "type": "select",
+            "key": "field_5c335a60e3bc5",
+            "label": "Offer Box 2",
+            "name": "offer_box_2",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -48,31 +127,110 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                "455.1": "qwerqwerqwer - qwreqwer",
-                "455.2": "qwerqwerqwer - qwer",
-                "435.1": "Affiliate Table Example - Row 1",
-                "435.2": "Affiliate Table Example - Row 2",
-                "137.1": "Affiliate Hanning - Row 1",
-                "137.2": "Affiliate Hanning - Row 2",
-                "137.3": "Affiliate Hanning - Row 3",
-                "137.4": "Affiliate Hanning - Row 4"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 1,
-            "return_format": "value",
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5c275f87795ba",
+                    "label": "Select Box 2",
+                    "name": "offer_box_select_2",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                        "455_1": "qwerqwerqwer - qwreqwer",
+                        "455_2": "qwerqwerqwer - qwer",
+                        "435_1": "Affiliate Table Example - Row 1",
+                        "435_2": "Affiliate Table Example - Row 2",
+                        "137_1": "Affiliate Hanning - STS",
+                        "137_2": "Affiliate Hanning - LVBET",
+                        "137_3": "Affiliate Hanning - Row 3",
+                        "137_4": "Affiliate Hanning - Row 4"
+                    },
+                    "default_value": [],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5c335753a0d76",
+                    "label": "Override Tag Ribbon Text?",
+                    "name": "override_tag_ribbon_text_box_2",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f87795ba",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "no",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_5c335766a0d77",
+                    "label": "Tag Ribbon Text",
+                    "name": "tag_ribbon_text_box_2",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f87795ba",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5c335753a0d76",
+                                "operator": "==",
+                                "value": "yes"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         },
         {
-            "key": "field_5c275f92795bb",
-            "label": "Offer box 3",
-            "name": "offer_box_three",
-            "type": "select",
+            "key": "field_5c335cd7e3bc6",
+            "label": "Offer Box 3",
+            "name": "offer_box_3",
+            "type": "group",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -81,25 +239,104 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "456.1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                "456.2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                "455.1": "qwerqwerqwer - qwreqwer",
-                "455.2": "qwerqwerqwer - qwer",
-                "435.1": "Affiliate Table Example - Row 1",
-                "435.2": "Affiliate Table Example - Row 2",
-                "137.1": "Affiliate Hanning - Row 1",
-                "137.2": "Affiliate Hanning - Row 2",
-                "137.3": "Affiliate Hanning - Row 3",
-                "137.4": "Affiliate Hanning - Row 4"
-            },
-            "default_value": [],
-            "allow_null": 1,
-            "multiple": 0,
-            "ui": 1,
-            "ajax": 1,
-            "return_format": "value",
-            "placeholder": ""
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5c275f92795bb",
+                    "label": "Select Box 3",
+                    "name": "offer_box_select_3",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
+                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
+                        "455_1": "qwerqwerqwer - qwreqwer",
+                        "455_2": "qwerqwerqwer - qwer",
+                        "435_1": "Affiliate Table Example - Row 1",
+                        "435_2": "Affiliate Table Example - Row 2",
+                        "137_1": "Affiliate Hanning - STS",
+                        "137_2": "Affiliate Hanning - LVBET",
+                        "137_3": "Affiliate Hanning - Row 3",
+                        "137_4": "Affiliate Hanning - Row 4"
+                    },
+                    "default_value": [],
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "ui": 1,
+                    "ajax": 1,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_5c33577ba0d78",
+                    "label": "Override Tag Ribbon Text?",
+                    "name": "override_tag_ribbon_text_box_3",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f92795bb",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "no",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_5c335789a0d79",
+                    "label": "Tag Ribbon Text",
+                    "name": "tag_ribbon_text_box_3",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c275f92795bb",
+                                "operator": "!=empty"
+                            },
+                            {
+                                "field": "field_5c33577ba0d78",
+                                "operator": "==",
+                                "value": "yes"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -134,5 +371,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1546443928
+    "modified": 1546952214
 }
