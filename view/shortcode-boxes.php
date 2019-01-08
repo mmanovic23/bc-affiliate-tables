@@ -6,10 +6,6 @@ if ( !function_exists( 'at_output_boxes' ) ) {
 
 	function at_output_boxes($id){
 
-		//$allAcfFields = get_field_objects($id);
-		//var_dump($allAcfFields['offer_box_1']['type'] == 'group');
-        //var_dump($allAcfFields);
-
 		$i = 1;
         if( have_rows('offer_box_'.$i, $id) ): ?>
             <div class="offer-boxes">
@@ -19,6 +15,8 @@ if ( !function_exists( 'at_output_boxes' ) ) {
                 $selectValue        = get_sub_field('offer_box_select_'.$i, $id);
                 $overRibbonText     = get_sub_field('override_tag_ribbon_text_box_'.$i, $id);
                 $ribbonText         = get_sub_field('tag_ribbon_text_box_'.$i, $id);
+                $addSubText         = get_sub_field('add_subtext_'.$i, $id);
+                $subText            = get_sub_field('sub_text_'.$i, $id);
 
                 $value              = explode( '_', $selectValue );
 				$b                  = $value[0]; //Post ID. Used to fetch the sub fields of that post ID.
@@ -29,7 +27,6 @@ if ( !function_exists( 'at_output_boxes' ) ) {
 				$translations       = get_field('table_settings', $b); //Get All the subfields of table settings.
 
                 ?>
-
                 <div class="offer-box">
                     <div class="offer-box-header">
                         <?php if( $specific_row['put_a_ribbon_on_this_table_row'] == 'yes' ): ?>
@@ -75,7 +72,11 @@ if ( !function_exists( 'at_output_boxes' ) ) {
                         <?php endif; ?>
 
                         <strong class="offer-box-title"><?php echo $specific_row['brand_offer_title']; ?></strong>
-                        <!--							<p>$0.01/month</p>-->
+
+                        <?php if( $addSubText == 'yes' ): ?>
+                            <p><?php echo $subText; ?></p>
+                        <?php endif; ?>
+
                     </div>
                     <div class="offer-box-details">
                         <ul>
@@ -148,7 +149,7 @@ if ( !function_exists( 'at_output_boxes' ) ) {
                     </div>
                 </div>
             <?php $i++; endwhile; ?>
-                </div>
+            </div>
 		<?php endif;
 	}
 }
