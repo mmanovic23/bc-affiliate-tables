@@ -12,22 +12,29 @@ if ( !function_exists( 'at_output_boxes' ) ) {
             <?php
 			while( have_rows('offer_box_'.$i, $id) ): the_row();
 
-                $selectValue        = get_sub_field('offer_box_select_'.$i, $id);
-                $overRibbonText     = get_sub_field('override_tag_ribbon_text_box_'.$i, $id);
-                $ribbonText         = get_sub_field('tag_ribbon_text_box_'.$i, $id);
-                $addSubText         = get_sub_field('add_subtext_'.$i, $id);
-                $subText            = get_sub_field('sub_text_'.$i, $id);
+				    $selectValue        = get_sub_field('offer_box_select_'.$i, $id);
 
-                $value              = explode( '_', $selectValue );
-				$b                  = $value[0]; //Post ID. Used to fetch the sub fields of that post ID.
-				$rowPosition        = $value[1] - 1; //Row Count. Used to fetch the Row sub fields.
+            ?>
+            <?php if(!$selectValue == ''):
 
-				$rows               = get_field('comparison_affiliate_table', $b); //Get All rows from the Affiliate Table post type.
-				$specific_row       = $rows[$rowPosition]; //Get the specific row. Used to access the sub fields data for that row.
-				$translations       = get_field('table_settings', $b); //Get All the subfields of table settings.
+					$overRibbonText     = get_sub_field('override_tag_ribbon_text_box_'.$i, $id);
+					$ribbonText         = get_sub_field('tag_ribbon_text_box_'.$i, $id);
+					$addSubText         = get_sub_field('add_subtext_'.$i, $id);
+					$subText            = get_sub_field('sub_text_'.$i, $id);
+					$enlargeBox         = get_sub_field('enlarge_this_box_'.$i, $id);
+					$enlargeRange       = get_sub_field('enlarge_range_'.$i, $id);
+					$addBoxShadow       = get_sub_field('add_box_shadow_'.$i, $id);
 
-                ?>
-                <div class="offer-box">
+					$value              = explode( '_', $selectValue );
+					$b                  = $value[0]; //Post ID. Used to fetch the sub fields of that post ID.
+					$rowPosition        = $value[1] - 1; //Row Count. Used to fetch the Row sub fields.
+
+					$rows               = get_field('comparison_affiliate_table', $b); //Get All rows from the Affiliate Table post type.
+					$specific_row       = $rows[$rowPosition]; //Get the specific row. Used to access the sub fields data for that row.
+					$translations       = get_field('table_settings', $b); //Get All the subfields of table settings.
+
+            ?>
+                <div class="offer-box" style="<?php if($enlargeBox == 'yes'){echo 'flex-basis: '.$enlargeRange.'%;';} if($addBoxShadow == 'yes'){echo 'box-shadow: 0px 0px 8px 1px #929292;';} ?>">
                     <div class="offer-box-header">
                         <?php if( $specific_row['put_a_ribbon_on_this_table_row'] == 'yes' ): ?>
                             <!-- ribbon -->
@@ -148,6 +155,7 @@ if ( !function_exists( 'at_output_boxes' ) ) {
 
                     </div>
                 </div>
+                <?php endif; ?>
             <?php $i++; endwhile; ?>
             </div>
 		<?php endif;
