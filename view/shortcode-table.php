@@ -81,7 +81,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 			 }*/
 
 			?>
-
+            <?php if( get_sub_field('hide_this_row_in_the_table') == 'no' ): ?>
 			<div class="item-holder">
 				<div class="item">
 
@@ -378,6 +378,7 @@ if ( !function_exists( 'at_output_table' ) ) {
                 <?php endif; ?>
 
 			</div><!-- /item-holder -->
+            <?php endif; ?>
 			<?php $i++; ?>
 	    <?php endwhile; ?>
 
