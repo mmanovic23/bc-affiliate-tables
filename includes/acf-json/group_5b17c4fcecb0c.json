@@ -372,6 +372,30 @@
                     "endpoint": 0
                 },
                 {
+                    "key": "field_5c35d2aa381be",
+                    "label": "Hide this row in the table?",
+                    "name": "hide_this_row_in_the_table",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "yes": "Yes",
+                        "no": "No"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "no",
+                    "layout": "horizontal",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
                     "key": "field_5b3c9717912ad",
                     "label": "Brand \/ Operator Name",
                     "name": "brand_operator_name",
@@ -1237,5 +1261,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1544795943
+    "modified": 1547031281
 }

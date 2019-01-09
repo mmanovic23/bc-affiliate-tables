@@ -5,29 +5,50 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /*---------------------------------------*\
     Register Affiliate Table post type.
 \*---------------------------------------*/
-function at_setup_post_type() {
+function at_setup_post_types() {
 
     // register the "table" custom post type.
     register_post_type('affiliate_table',	
-                       array(
-                           'labels'      => array(
-                               'name'			=> __('Affiliate Tables'),
-                               'singular_name'	=> __('Affiliate Table'),
-                               'add_new' 		=> __('Add new table'),
-                               'add_new_item' 	=> __('Add new table'),
-                               'edit_item' 		=> __('Edit table'),
-                               'new_item' 		=> __('New table'),
-                               'view_item' 		=> __('View table'),
-                               'all_items' 		=> __('All tables'),
-                               'not_found' 		=> __('No tables found'),
-                           ),
-                           'public'			=> true,
-                           'has_archive'	=> true,
-                           'menu_icon'		=> 'dashicons-editor-table',
-                       )
+       array(
+           'labels'      => array(
+               'name'			=> __('Affiliate Tables'),
+               'singular_name'	=> __('Affiliate Table'),
+               'add_new' 		=> __('Add new table'),
+               'add_new_item' 	=> __('Add new table'),
+               'edit_item' 		=> __('Edit table'),
+               'new_item' 		=> __('New table'),
+               'view_item' 		=> __('View table'),
+               'all_items' 		=> __('All tables'),
+               'not_found' 		=> __('No tables found'),
+           ),
+           'public'			=> true,
+           'has_archive'	=> true,
+           'menu_icon'		=> 'dashicons-list-view',
+       )
     );
+
+
+	// register the "offer boxes" custom post type.
+	register_post_type('offer_boxes',
+		array(
+			'labels'      => array(
+				'name'			=> __('Offer Boxes'),
+				'singular_name'	=> __('Offer Boxes'),
+				'add_new' 		=> __('Add new boxes'),
+				'add_new_item' 	=> __('Add new boxes'),
+				'edit_item' 	=> __('Edit boxes'),
+				'new_item' 		=> __('New offer boxes'),
+				'view_item' 	=> __('View boxes'),
+				'all_items' 	=> __('All offer boxes'),
+				'not_found' 	=> __('No offer boxes found'),
+			),
+            'public'		=> true,
+			'has_archive'	=> true,
+			'menu_icon'		=> 'dashicons-list-view',
+		)
+	);
 }
-add_action( 'init', 'at_setup_post_type' );
+add_action( 'init', 'at_setup_post_types' );
 
 
 
@@ -35,12 +56,17 @@ add_action( 'init', 'at_setup_post_type' );
     Affiliate Table Post type Template.
 \*----------------------------------------*/
 function at_get_custom_post_type_template($single_template) {
-     global $post;
+    global $post;
 
-     if ($post->post_type == 'affiliate_table') {
-          $single_template = AT_PATH . 'single-affiliate_table.php';
-     }
-     return $single_template;
+    if ($post->post_type == 'affiliate_table') {
+        $single_template = AT_PATH . 'templates/single-affiliate_table.php';
+        return $single_template;
+    }
+    if ($post->post_type == 'offer_boxes') {
+        $single_template = AT_PATH . 'templates/single-offer_boxes.php';
+        return $single_template;
+    }
+
 }
 add_filter( 'single_template', 'at_get_custom_post_type_template' );
 
@@ -51,7 +77,7 @@ add_filter( 'single_template', 'at_get_custom_post_type_template' );
 \*----------------------------------------*/
 function at_noindex_for_custom_post()
 {
-	if ( is_singular( 'affiliate_table' ) ) {
+	if ( is_singular( 'affiliate_table' ) || is_singular('offer_boxes') ) {
 		echo '<meta name="robots" content="noindex, follow">';
 	}
 }
@@ -288,7 +314,7 @@ add_action( 'admin_action_rd_duplicate_post_as_draft', 'rd_duplicate_post_as_dra
     Add the duplicate link to action list for post_row_actions.
 \*-----------------------------------------------------------------*/
 function rd_duplicate_post_link( $actions, $post ) {
-	if (current_user_can('edit_posts') && $post->post_type=='affiliate_table') {
+	if (current_user_can('edit_posts') && $post->post_type=='affiliate_table' || current_user_can('edit_posts') && $post->post_type=='offer_boxes') {
 		$actions['duplicate'] = '<a href="' . wp_nonce_url('admin.php?action=rd_duplicate_post_as_draft&post=' . $post->ID, basename(__FILE__), 'duplicate_nonce' ) . '" title="Duplicate this item" rel="permalink">Duplicate</a>';
 	}
 	return $actions;
@@ -303,7 +329,7 @@ add_filter( 'post_row_actions', 'rd_duplicate_post_link', 10, 2 );
 function at_plugin_install() {
 
     // Register post type at plugin install
-    at_setup_post_type();
+    at_setup_post_types();
 
     // Create Example Post
     at_example_post();
@@ -328,6 +354,7 @@ function at_plugin_deactivation() {
 
     // unregister the post type, so the rules are no longer in memory
     unregister_post_type( 'affiliate_table' );
+	unregister_post_type( 'offer_boxes' );
 
     // clear the permalinks to remove our post type's rules from the database
     flush_rewrite_rules();
@@ -337,27 +364,39 @@ register_deactivation_hook( AT_PATH .'bc-affiliate-table.php', 'at_plugin_deacti
 
 
 /*-----------------------------------------------------------------------------*\
-   In 'Affiliate Table' admin post list page: Add custom columns to post type.
+   In admin post list pages: Add custom columns to post types.
 \*-----------------------------------------------------------------------------*/
 function at_custom_columns($column) {
-
-    $column['shortcode_id'] = 'Shortcode';
-    return $column;
+    global $post;
+	if ($post->post_type=='affiliate_table'){
+		$column['shortcode_id_at'] = 'Shortcode';
+		return $column;
+	}
+	if ($post->post_type=='offer_boxes'){
+		$column['shortcode_id_bo'] = 'Shortcode';
+		return $column;
+	}
 }
 add_filter( 'manage_affiliate_table_posts_columns', 'at_custom_columns' );
+add_filter( 'manage_offer_boxes_posts_columns', 'at_custom_columns' );
 
 
 
 /*---------------------------------------------------------------------------*\
-   In 'Affiliate Table' admin post list page: Insert custom columns content.
+   In admin post list pages: Insert custom columns content.
 \*---------------------------------------------------------------------------*/
 function custom_at_column( $column, $post_id ) {
     
-	if ($column == 'shortcode_id') {	        
+	if ($column == 'shortcode_id_at') {
         echo '[affiliate-table id='. $post_id .']';    
     }
+
+	if ($column == 'shortcode_id_bo') {
+		echo '[offer-boxes id='. $post_id .']';
+	}
 }
 add_action( 'manage_affiliate_table_posts_custom_column' , 'custom_at_column', 10, 2 );
+add_action( 'manage_offer_boxes_posts_custom_column' , 'custom_at_column', 10, 2 );
 
 
 
@@ -385,6 +424,10 @@ function at_admin_custom_css() {
         body.post-type-affiliate_table #at_table_rows .acf-table{
             border: #000000 solid 1px;
         }
+        #menu-posts-affiliate_table > a > div.wp-menu-image.dashicons-before.dashicons-list-view::before,
+        #menu-posts-offer_boxes > a > div.wp-menu-image.dashicons-before.dashicons-list-view::before{
+            color: #00d084;
+        }
     </style>
 <?php
 }
@@ -392,35 +435,58 @@ add_action('admin_head', 'at_admin_custom_css');
 
 
 
-/*-----------------------------------------------------*\
-    Populate Select field for the 3 Boxes Shortcode.
-\*-----------------------------------------------------*/
-/*function acf_load_color_field_choices( $field ) {
+/*---------------------------------------------------------*\
+    Populate Select field for the Offer Boxes Shortcode.
+\*---------------------------------------------------------*/
+function acf_load_affiliate_table_rows_into_offer_boxes_select_fields( $field ) {
 
-	// reset choices
-	$field['choices'] = array();
+		//var_dump($field);
 
-	// if has rows
-	if( have_rows('comparison_affiliate_table', 'option') ) {
-		// while has rows
-		while( have_rows('comparison_affiliate_table', 'option') ) {
+		// reset choices
+		$field['choices'] = array();
 
-			// instantiate row
-			the_row();
+		$query = new WP_Query( array(
+			'post_type'      => 'affiliate_table',
+			'posts_per_page' => 100
+		) );
 
-			// vars
-			$value = get_sub_field('brand_operator_name');
-			$label = get_sub_field('brand_operator_name');
+		//var_dump($query);
+		while ( $query->have_posts() ) : $query->the_post();
+			if ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
+				while ( have_rows( 'comparison_affiliate_table', get_the_ID() ) ) {
 
-			// append to choices
-			$field['choices'][ $value ] = $label;
+					// instantiate row
+					the_row();
 
-		}
-	}
-	// return the field
-	return $field;
+					// vars
+					//$value = get_sub_field( 'brand_operator_name' );
+
+					$label = get_sub_field( 'brand_operator_name' );
+					$value = get_the_ID().'_'.(string)get_row_index();
+					//var_dump($value);
+					//var_dump($label);
+
+					$title = get_the_title();
+
+					// append to choices
+					$field['choices'][ $value ] = $title . ' - ' . $label;
+
+				}
+			}
+
+		endwhile;
+
+		wp_reset_query();
+
+		//var_dump($field);
+
+		// return the field
+		return $field;
+
 }
-add_filter('acf/load_field/type=select', 'acf_load_color_field_choices');*/
+add_filter('acf/load_field/key=field_5c275f77795b9', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
+add_filter('acf/load_field/key=field_5c275f87795ba', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
+add_filter('acf/load_field/key=field_5c275f92795bb', 'acf_load_affiliate_table_rows_into_offer_boxes_select_fields');
 
 
 
@@ -436,6 +502,28 @@ function sticky_admin_sidebar_script ( $hook ) {
     wp_enqueue_script( 'sticky_admin_sidebars', AT_URL . 'admin/sticky-admin-sidebar.js', array( 'jquery' ) );
 }
 add_action( 'admin_enqueue_scripts', 'sticky_admin_sidebar_script' );
+
+
+
+/*function add_my_options_pages() {
+	if( function_exists('acf_add_options_page') ) {
+
+		acf_add_options_page(array(
+			'page_title' 	=> 'Offer Boxes',
+			'menu_title' 	=> 'Offer Boxes',
+			'menu_slug' 	=> 'offer-boxes',
+			'capability' 	=> 'edit_posts',
+			'redirect' 	=> false,
+			'parent_slug'	=> 'edit.php?post_type=affiliate_table',
+			'position'	=> false,
+			'icon_url' 	=> 'dashicons-images-alt2',
+		));
+
+	}
+}
+add_action('init', 'add_my_options_pages');*/
+
+
 
 
 ?>
