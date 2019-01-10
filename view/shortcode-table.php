@@ -7,100 +7,86 @@ if ( !function_exists( 'at_output_table' ) ) {
 	function at_output_table($id){
 
 
-		if ( have_rows('table_settings', $id) ):
-			while( have_rows('table_settings', $id) ): the_row();
+		if ( have_rows('table_settings', $id) ){
+			while( have_rows('table_settings', $id) ){
 
-		    $sign_up_text = get_sub_field('sign_up_text');
-		    $our_score_text = get_sub_field('our_score_text');
-            $go_to_text = get_sub_field('go_to_text');
-            $create_your_account_text = get_sub_field('create_your_account_text');
-            $read_the_full_review_text = get_sub_field('read_the_full_review_text');
-            $review_text = get_sub_field('review_text');
-            $tc_apply = get_sub_field('tc_apply');
-            $show_text = get_sub_field('show_text');
-            $hide_text = get_sub_field('hide_text');
+            the_row();
 
-		?>
+		    $sign_up_text                   = get_sub_field('sign_up_text');
+		    $our_score_text                 = get_sub_field('our_score_text');
+            $go_to_text                     = get_sub_field('go_to_text');
+            $create_your_account_text       = get_sub_field('create_your_account_text');
+            $read_the_full_review_text      = get_sub_field('read_the_full_review_text');
+            $review_text                    = get_sub_field('review_text');
+            $tc_apply                       = get_sub_field('tc_apply');
+            $show_text                      = get_sub_field('show_text');
+            $hide_text                      = get_sub_field('hide_text');
+            $columnOneHeader                = get_sub_field('column_1_header_title');
+            $columnTwoHeader                = get_sub_field('column_2_header_title');
+            $columnThreeHeader              = get_sub_field('column_3_header_title');
+            $columnFourHeader               = get_sub_field('column_4_header_title');
+            $tableHeaderBgColor             = get_sub_field('table_header_background_color');
+            $tableHeaderTextColor           = get_sub_field('table_header_text_color');
 
-        <?php
+            }
+        }
 
-        // $fields = get_field('table_settings', $id);
-
-        //DEBUG FIELDS
-
-        // DEBUG 1
-        // var_dump($fields);
-
-        //DEBUG 2
-        // foreach( $fields as $field_name => $field )
-        // {
-        // 	echo '<div>';
-        // 		echo '<h3>' . $field['label'] . '</h3>';
-        // 		echo $field['value'];
-        // 	echo '</div>';
-        // }
-
-        ?>
-
-		<div class="bet-table-head" style="background-color: <?php the_sub_field('table_header_background_color') ?>; color: <?php the_sub_field('table_header_text_color') ?>">
-			<div class="header-one"><?php the_sub_field('column_1_header_title'); ?></div>
-			<div class="header-two"><?php the_sub_field('column_2_header_title'); ?></div>
-			<div class="header-three"><?php the_sub_field('column_3_header_title'); ?></div>
-			<div class="header-four"><?php the_sub_field('column_4_header_title'); ?></div>
-		</div>
-
-
-
-			<?php endwhile; ?>
-		<?php endif;
 
 		if( have_rows('comparison_affiliate_table', $id) ): ?>
 
-		<?php $i = 1; ?>
+		<?php
+            $i = 1;
+            $fields = get_field('comparison_affiliate_table', $id);
+            $includeStarSort = false;
+            $includeScoreSort = false;
+            foreach ($fields as $row){
+	            $includeStarSort = $row['include_star_rating'] == 'yes' ? true : false;
+	            $includeScoreSort = $row['include_our_score'] == 'yes' ? true : false;
+            }
+        ?>
+
+        <?php if($includeStarSort == true || $includeScoreSort == true ): ?>
+        <div class="at-table-sorting">
+            <strong>Sort by: </strong>
+            <?php if($includeStarSort == true): ?>
+            <div class="sort-stars" data-sort-value="sort-stars">Stars</div>
+            <?php endif; ?>
+			<?php if($includeScoreSort == true): ?>
+            <div class="sort-score" data-sort-value="sort-score">Score</div>
+			<?php endif; ?>
+        </div>
+        <?php endif; ?>
+
+        <div class="bet-table-head" style="background-color: <?php echo $tableHeaderBgColor; ?>; color: <?php echo $tableHeaderTextColor; ?>">
+            <div class="header-one"><?php echo $columnOneHeader; ?></div>
+            <div class="header-two"><?php echo $columnTwoHeader; ?></div>
+            <div class="header-three"><?php echo $columnThreeHeader; ?></div>
+            <div class="header-four"><?php echo $columnFourHeader ?></div>
+        </div>
 
 	    <!-- bet-table -->
 		<div class="bet-table">
 
 	    <?php while( have_rows('comparison_affiliate_table', $id) ): the_row(); ?>
 
-	    	<?php 
-//	    	$fields = get_field('comparison_affiliate_table', $id);
-	    	
-	    	//DEBUG FIELDS
-
-	    	// DEBUG 1
-//	    	var_dump($fields);
-			
-			//DEBUG 2
-/*			 foreach( $fields as $field_name => $field )
-			 {
-			 	echo '<div>';
-			 		echo '<h3>' . $field['label'] . '</h3>';
-			 		echo $field['value'];
-			 	echo '</div>';
-			 }*/
-
-			?>
             <?php if( get_sub_field('hide_this_row_in_the_table') == 'no' ): ?>
-			<div class="item-holder">
+			<div class="item-holder" data-orig="<?php echo $i; ?>">
 				<div class="item">
 
 					<!-- logo -->
 					<div class="col-logo">
 						<div class="logo-link-wrapper">
 
-							
 							<?php if( get_sub_field('put_a_ribbon_on_this_table_row') == 'yes' ): ?>
-								<!-- ribbon -->
-								<div class="tag-ribbon" style="color:<?php the_sub_field('ribbon_color'); ?>">
-								<div class="inner"><?php the_sub_field('ribbon_text'); ?></div>
-									<svg class="corner-right" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.5 25" preserveAspectRatio="none">
-										<polygon fill="currentColor" points="5.5,25 0.1,25 0,0 5.5,0 0.5,12.5 "></polygon>
-									</svg>
-								</div>
+                            <!-- ribbon -->
+                            <div class="tag-ribbon" style="color:<?php the_sub_field('ribbon_color'); ?>">
+                            <div class="inner"><?php the_sub_field('ribbon_text'); ?></div>
+                                <svg class="corner-right" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.5 25" preserveAspectRatio="none">
+                                    <polygon fill="currentColor" points="5.5,25 0.1,25 0,0 5.5,0 0.5,12.5 "></polygon>
+                                </svg>
+                            </div>
 							<?php endif; ?>
-							
-							
+
 							<a class="logo-link" href="<?php the_sub_field('cta_affiliate_link'); ?>" rel="nofollow" target="_blank">					
 								<div class="logo-box" style="background-color:<?php the_sub_field('brand_logo_background'); ?>">
 
@@ -118,7 +104,7 @@ if ( !function_exists( 'at_output_table' ) ) {
 								</div>
 							</a>
 
-							<?php if( get_sub_field('include_star_rating') == 'yes' ): ?>
+							<?php if( get_sub_field('include_star_rating') == 'yes' ){ ?>
 							<!-- Star Rating -->
 							<span class="rating-bar">
 								<span class="rating">
@@ -126,7 +112,14 @@ if ( !function_exists( 'at_output_table' ) ) {
 								</span>
 		                        <!-- <span class="rating-count">487 reviews</span> -->
 		                    </span>
-		                    <?php endif; ?>
+		                    <?php } else { ?>
+                            <span class="rating-bar" style="display: none;">
+								<span class="rating">
+									<span class="rate" data-rateyo-rating="0"></span>
+								</span>
+                                    <!-- <span class="rating-count">487 reviews</span> -->
+		                    </span>
+                            <?php } ?>
 
 						</div>
 					</div>
@@ -139,10 +132,8 @@ if ( !function_exists( 'at_output_table' ) ) {
 						</a>
 						
 						<?php if( get_sub_field('include_our_score') == 'yes' ): ?>
-						
 							<!-- "Our Score" shows on mobile devices -->
 							<div class="score-text"><?php echo $our_score_text; ?>: <span class="score-value"><?php the_sub_field('our_score'); ?></span></div>
-
 						<?php endif; ?>
 
                         <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' ): ?>
@@ -211,11 +202,15 @@ if ( !function_exists( 'at_output_table' ) ) {
 							</svg>
 						</a>
 
-						<?php if( get_sub_field('include_our_score') == 'yes' ): ?>
+						<?php if( get_sub_field('include_our_score') == 'yes' ){ ?>
 							<div class="score-text"><?php echo $our_score_text; ?>:
 								<span class="score-value"><?php the_sub_field('our_score'); ?></span>
 							</div>
-						<?php endif; ?>
+						<?php } else { ?>
+                            <div class="score-text" style="display: none;">
+                                <span class="score-value">0</span>
+                            </div>
+                        <?php } ?>
 
                         <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' ): ?>
 						<!-- Popup content that shows on mobile devices -->
@@ -381,11 +376,8 @@ if ( !function_exists( 'at_output_table' ) ) {
             <?php endif; ?>
 			<?php $i++; ?>
 	    <?php endwhile; ?>
-
 	    </div><!-- /bet-table -->
-
 		<?php endif;
-
 	}
 }
 ?>
