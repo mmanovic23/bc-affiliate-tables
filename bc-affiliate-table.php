@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BC Affiliate Tables
  * Description: BC Affiliate comparison tables.
- * Version: 1.4.1
+ * Version: 2.0.0
  * Author: Better Collective - Hanning Høegh
  * License: GPL2
  */
@@ -30,7 +30,7 @@ include_once( AT_PATH . 'admin/admin-init.php');
 /*---------------------------*\
     Plugin update checker.
 \*---------------------------*/
-require 'plugin-update-checker/plugin-update-checker.php';
+require 'includes/plugin-update-checker/plugin-update-checker.php';
 $at_className = PucFactory::getLatestClassVersion('PucGitHubChecker');
 $at_myUpdateChecker = new $at_className(
     'https://github.com/SmileyJoey/bc-affiliate-tables/',
@@ -44,7 +44,7 @@ $at_myUpdateChecker = new $at_className(
     Register plugin scripts / styles.
 \*---------------------------------------*/
 function at_plugin_scripts_stylesheets() {
-        wp_register_style('at-table', AT_URL . 'build/css/main.min.css' );
+        wp_register_style('at-main', AT_URL . 'build/css/main.min.css' );
 		wp_register_script( 'at-js', AT_URL . 'build/js/main.min.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'at_plugin_scripts_stylesheets');
@@ -60,7 +60,7 @@ if ( !class_exists('acf') ) {
         function at_acf_settings_path( $path ) {
 
             // update path
-            $path = AT_PATH . 'acf/';
+            $path = AT_PATH . 'includes/acf/';
 
             // return
             return $path;
@@ -73,7 +73,7 @@ if ( !class_exists('acf') ) {
         function at_acf_settings_dir( $dir ) {
 
             // update path
-            $dir = plugins_url() . '/bc-affiliate-tables/acf/';
+            $dir = plugins_url() . '/bc-affiliate-tables/includes/acf/';
 
             // return
             return $dir;
@@ -83,26 +83,8 @@ if ( !class_exists('acf') ) {
 
 
         // 4. Include ACF
-        include_once( AT_PATH . 'acf/acf.php' );
+        include_once( AT_PATH . 'includes/acf/acf.php' );
 
-}
-
-
-
-/*----------------------------------------------------------------*\
-    Helper function. Check if given field group already exists.
-\*----------------------------------------------------------------*/
-function at_is_field_group_exists($value, $type='post_title') {
-
-	$exists = false;
-	if ($field_groups = get_posts(array('post_type'=>'acf-field-group'))) {
-	    foreach ($field_groups as $field_group) {
-	        if ($field_group->$type == $value) {
-	            $exists = true;
-	        }
-	    }
-	}
-	return $exists;
 }
 
 
@@ -110,35 +92,33 @@ function at_is_field_group_exists($value, $type='post_title') {
 /*---------------------------------------------------------------------------*\
     If group field "Affiliate Table" doesn't exists, load JSON group field.
 \*---------------------------------------------------------------------------*/
-//var_dump(at_is_field_group_exists('Affiliate Table'));
-if ( at_is_field_group_exists('Affiliate Table') == false ) {
 
-	// Load ACF Settings from JSON file.
-	function at_acf_json_load_point( $paths ) {
+// Load ACF Settings from JSON file.
+function at_acf_json_load_point( $paths ) {
 
-	    // append path
-	    $paths[] = AT_PATH . 'acf-json';
-//	    var_dump($paths);
-	    return $paths;
-	}
-	add_filter('acf/settings/load_json', 'at_acf_json_load_point');
-
+    // append path
+    $paths[] = AT_PATH . 'includes/acf-json';
+	// var_dump($paths);
+    return $paths;
 }
+add_filter('acf/settings/load_json', 'at_acf_json_load_point');
+
 
 
 // Save ACF Settings to JSON file.
 function at_acf_json_save_point( $path ) {
-    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_5b17c4fcecb0c" )
-        $path = AT_PATH . 'acf-json';
+    if( isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_5b17c4fcecb0c" || isset($_POST['acf_field_group']['key']) && $_POST['acf_field_group']['key'] == "group_5c275e87b66ec" )
+        $path = AT_PATH . 'includes/acf-json';
     return $path;
+
 }
 add_filter('acf/settings/save_json', 'at_acf_json_save_point');
 
 
 
-/*---------------------*\
-    Output the table.
-\*---------------------*/
+/*--------------------------------*\
+            Shortcodes.
+\*--------------------------------*/
 function at_shortcodes_init()
 {
     function table_shortcode( $atts = [] )
@@ -151,9 +131,9 @@ function at_shortcodes_init()
 			'id' => '',
 		], $atts);
 
-	    wp_enqueue_style('at-table');
+	    wp_enqueue_style('at-main');
 	    wp_enqueue_script('at-js');
-	    include_once( AT_PATH . 'main.php');
+	    include_once( AT_PATH . 'view/shortcode-table.php');
 
     	ob_start();
     	at_output_table(esc_html( $at_atts['id'] ));
@@ -162,6 +142,28 @@ function at_shortcodes_init()
         return $output;
     }
     add_shortcode('affiliate-table', 'table_shortcode');
+
+	function boxes_shortcode( $atts = [] )
+	{
+		// normalize attribute keys, lowercase
+		$atts = array_change_key_case((array)$atts, CASE_LOWER);
+
+		// override default attributes with user attributes
+		$at_atts = shortcode_atts([
+			'id' => '',
+		], $atts);
+
+		wp_enqueue_style('at-main');
+		wp_enqueue_script('at-js');
+		include_once( AT_PATH . 'view/shortcode-boxes.php');
+
+		ob_start();
+		at_output_boxes(esc_html( $at_atts['id'] ));
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
+	}
+	add_shortcode('offer-boxes', 'boxes_shortcode');
 }
 add_action('init', 'at_shortcodes_init');
 
