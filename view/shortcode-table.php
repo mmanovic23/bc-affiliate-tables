@@ -27,6 +27,9 @@ if ( !function_exists( 'at_output_table' ) ) {
             $columnFourHeader               = get_sub_field('column_4_header_title');
             $tableHeaderBgColor             = get_sub_field('table_header_background_color');
             $tableHeaderTextColor           = get_sub_field('table_header_text_color');
+            $sortByText                     = get_sub_field('sort_by_text');
+            $starsText                      = get_sub_field('stars_text');
+            $scoreText                      = get_sub_field('score_text');
 
             }
         }
@@ -46,17 +49,19 @@ if ( !function_exists( 'at_output_table' ) ) {
         ?>
 
         <?php if($includeStarSort == true || $includeScoreSort == true ): ?>
+        <!-- sorting-header -->
         <div class="at-table-sorting">
-            <strong>Sort by: </strong>
+            <strong><?php echo $sortByText; ?>:</strong>
             <?php if($includeStarSort == true): ?>
-            <div class="sort-stars" data-sort-value="sort-stars">Stars</div>
+            <div class="sort-stars" data-sort-value="sort-stars"><?php echo $starsText; ?></div>
             <?php endif; ?>
 			<?php if($includeScoreSort == true): ?>
-            <div class="sort-score" data-sort-value="sort-score">Score</div>
+            <div class="sort-score" data-sort-value="sort-score"><?php echo $scoreText; ?></div>
 			<?php endif; ?>
         </div>
         <?php endif; ?>
 
+        <!-- bet-table-header -->
         <div class="bet-table-head" style="background-color: <?php echo $tableHeaderBgColor; ?>; color: <?php echo $tableHeaderTextColor; ?>">
             <div class="header-one"><?php echo $columnOneHeader; ?></div>
             <div class="header-two"><?php echo $columnTwoHeader; ?></div>

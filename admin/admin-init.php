@@ -130,10 +130,14 @@ function at_example_post() {
 			'review_text' =>  'Review',
 			'show_text' =>  'Show',
 			'hide_text' =>  'Hide',
-			'tc_apply' => 'T&C Apply'
+			'tc_apply' => 'T&C Apply',
+			'sort_by_text' => 'Sort by',
+			'stars_text' => 'Stars',
+			'score_text' => 'Score'
         );
 
 		$row = array(
+			'hide_this_row_in_the_table' =>  'no',
 			'brand_operator_name' =>  'Unibet',
 			'brand_logo_image' => false,
 			'brand_logo_background' =>  '#278900',
@@ -165,6 +169,7 @@ function at_example_post() {
 		);
 
 		$row2 = array(
+			'hide_this_row_in_the_table' =>  'no',
 			'brand_operator_name' =>  'Unibet',
 			'brand_logo_image' => false,
 			'brand_logo_background' =>  '#dd3333',
@@ -522,8 +527,5 @@ add_action( 'admin_enqueue_scripts', 'sticky_admin_sidebar_script' );
 	}
 }
 add_action('init', 'add_my_options_pages');*/
-
-
-
 
 ?>
