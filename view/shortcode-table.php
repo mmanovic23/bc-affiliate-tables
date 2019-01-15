@@ -43,8 +43,12 @@ if ( !function_exists( 'at_output_table' ) ) {
             $includeStarSort = false;
             $includeScoreSort = false;
             foreach ($fields as $row){
-	            $includeStarSort = $row['include_star_rating'] == 'yes' ? true : false;
-	            $includeScoreSort = $row['include_our_score'] == 'yes' ? true : false;
+                if($includeStarSort == false){
+	                $includeStarSort = $row['include_star_rating'] == 'yes' ? true : false;
+                }
+                if($includeScoreSort == false){
+		            $includeScoreSort = $row['include_our_score'] == 'yes' ? true : false;
+                }
             }
         ?>
 
