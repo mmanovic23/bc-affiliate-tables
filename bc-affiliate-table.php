@@ -31,12 +31,12 @@ include_once( AT_PATH . 'admin/admin-init.php');
     Plugin update checker.
 \*---------------------------*/
 require 'includes/plugin-update-checker/plugin-update-checker.php';
-$at_className = PucFactory::getLatestClassVersion('PucGitHubChecker');
-$at_myUpdateChecker = new $at_className(
-    'https://github.com/SmileyJoey/bc-affiliate-tables/',
-    __FILE__,
-    'master'
+$at_myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/SmileyJoey/bc-affiliate-tables/',
+	__FILE__,
+	'master'
 );
+$at_myUpdateChecker->setBranch('master');
 
 
 
