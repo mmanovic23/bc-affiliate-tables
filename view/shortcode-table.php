@@ -217,7 +217,7 @@ if ( !function_exists( 'at_output_table' ) ) {
                             </div>
                         <?php } ?>
 
-                        <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' ): ?>
+                        <?php if( get_sub_field('include_a_tc_popup_box_on_hover') == 'yes' && !get_sub_field('tc_popup_content' == '') ): ?>
 						<!-- Popup content that shows on mobile devices -->
 						<div class="extra-text">
 							<?php the_sub_field('tc_popup_content'); ?>
