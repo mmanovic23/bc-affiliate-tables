@@ -30,18 +30,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                        "455_1": "qwerqwerqwer - qwreqwer",
-                        "455_2": "qwerqwerqwer - qwer",
-                        "435_1": "Affiliate Table Example - Row 1",
-                        "435_2": "Affiliate Table Example - Row 2",
-                        "137_1": "Affiliate Hanning - STS",
-                        "137_2": "Affiliate Hanning - LVBET",
-                        "137_3": "Affiliate Hanning - Row 3",
-                        "137_4": "Affiliate Hanning - Row 4"
-                    },
+                    "choices": {},
                     "default_value": [],
                     "allow_null": 1,
                     "multiple": 0,
@@ -290,18 +279,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                        "455_1": "qwerqwerqwer - qwreqwer",
-                        "455_2": "qwerqwerqwer - qwer",
-                        "435_1": "Affiliate Table Example - Row 1",
-                        "435_2": "Affiliate Table Example - Row 2",
-                        "137_1": "Affiliate Hanning - STS",
-                        "137_2": "Affiliate Hanning - LVBET",
-                        "137_3": "Affiliate Hanning - Row 3",
-                        "137_4": "Affiliate Hanning - Row 4"
-                    },
+                    "choices": {},
                     "default_value": [],
                     "allow_null": 1,
                     "multiple": 0,
@@ -550,18 +528,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "456_1": "fhjmdfgsdfsdg - fdsgnsfgbsfgbsfgb",
-                        "456_2": "fhjmdfgsdfsdg - sfgnmdgtmet",
-                        "455_1": "qwerqwerqwer - qwreqwer",
-                        "455_2": "qwerqwerqwer - qwer",
-                        "435_1": "Affiliate Table Example - Row 1",
-                        "435_2": "Affiliate Table Example - Row 2",
-                        "137_1": "Affiliate Hanning - STS",
-                        "137_2": "Affiliate Hanning - LVBET",
-                        "137_3": "Affiliate Hanning - Row 3",
-                        "137_4": "Affiliate Hanning - Row 4"
-                    },
+                    "choices": {},
                     "default_value": [],
                     "allow_null": 1,
                     "multiple": 0,
