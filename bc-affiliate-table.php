@@ -34,7 +34,7 @@ require 'includes/plugin-update-checker/plugin-update-checker.php';
 $at_myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	'https://github.com/SmileyJoey/bc-affiliate-tables/',
 	__FILE__,
-	'master'
+	'bc-affiliate-tables'
 );
 $at_myUpdateChecker->setBranch('master');
 

@@ -66,7 +66,7 @@ function at_get_custom_post_type_template($single_template) {
         $single_template = AT_PATH . 'templates/single-offer_boxes.php';
         return $single_template;
     }
-
+	return $single_template;
 }
 add_filter( 'single_template', 'at_get_custom_post_type_template' );
 
